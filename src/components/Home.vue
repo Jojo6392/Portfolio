@@ -118,14 +118,12 @@ $background_image: rgb(27, 26, 35);
                 border-radius: 20px;
                 font-size: 90px;
                 color: $background_image;
-                cursor: pointer;
             }
         }
 
         &__img {
             border-radius: 20px;
             width: 750px;
-            cursor: pointer;
         }
     }
 }
