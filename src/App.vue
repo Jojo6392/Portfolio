@@ -1,15 +1,21 @@
 <template>
     <div id="app">
-        <!-- Cursor -->
-        <div :class="[ 'g-cursor', { 'g-cursor_hover': hover }, {'g-cursor_hide': hideCursor} ]">
-            <div :style="cursorCircle" class="g-cursor__circle"></div>
-            <img class="g-cursor__point" ref="point" :style="cursorPoint" src="./assets/cursor.svg" alt="cursor">
+        <Navbar id="navbar" :class="{ sticky: needSticky }" />
+        <div class="container">
+            <!-- Cursor : hover needed to not see the cursor block when travelling on the site -->
+            <div :class="[ 'cursor', { 'cursor_hover': hover }, {'cursor_hide': hideCursor} ]">
+                <div :style="cursorCircle" class="cursor__circle"></div>
+                <img class="cursor__point" ref="point" :style="cursorPoint" src="./assets/cursor.svg" alt="cursor">
+            </div>
+            <vue-page-transition name="zoom">
+                <router-view />
+            </vue-page-transition>
         </div>
-        <router-view />
     </div>
 </template>
 
 <script>
+import Navbar from "./components/Navbar.vue"
 
 export default {
     name: "App",
@@ -21,8 +27,14 @@ export default {
             xParent: 0,
             yParent: 0,
             hover: false,
-            hideCursor: true
+            hideCursor: true,
+
+            needSticky: false,
         }
+    },
+
+    components: {
+        Navbar
     },
 
     computed: {
@@ -40,9 +52,19 @@ export default {
         document.addEventListener('mouseleave', () => {
             this.hideCursor = true;
         });
+
         document.addEventListener('mouseenter', () => {
             this.hideCursor = false;
         });
+
+        const navbar = document.getElementById("navbar");
+        const sticky = navbar.offsetTop;
+        window.onscroll = () => {
+            if(window.pageYOffset >= sticky)
+                this.needSticky = true
+            else
+                this.needSticky = false
+        };
     },
 
     methods: {
@@ -60,55 +82,60 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.g-cursor {
+
+.cursor {
 
     &_hide {
-      opacity: 0;
-      width: 60px;
-      height: 60px;
-      transition: width .6s ease,
+        opacity: 0;
+        width: 60px;
+        height: 60px;
+        transition: width .6s ease,
         height .6s ease,
         opacity .6s ease;
     }
 
     &__circle {
-      pointer-events: none;
-      user-select: none;
-      top: 0;
-      left: 0;
-      position: fixed;
-      width: 40px;
-      height: 40px;
-      border: 2px solid black;
-      border-radius: 100%;
-      z-index: 5555;
-      backface-visibility: hidden;
-      transition: opacity .6s ease;
+        pointer-events: none;
+        user-select: none;
+        top: 0;
+        left: 0;
+        position: fixed;
+        width: 40px;
+        height: 40px;
+        border: 2px solid black;
+        border-radius: 100%;
+        z-index: 99;
+        backface-visibility: hidden;
+        transition: opacity .6s ease;
     }
 
     &__point {
-      top: 0;
-      left: 0;
-      position: fixed;
-      width: 20px;
-      height: 20px;
-      pointer-events: none;
-      user-select: none;
-      border-radius: 100%;
-      z-index: 55555555;
-    //   backface-visibility: hidden;
-    //   will-change: transform;
+        top: 0;
+        left: 0;
+        position: fixed;
+        width: 20px;
+        height: 20px;
+        pointer-events: none;
+        user-select: none;
+        border-radius: 100%;
+        z-index: 100;
     }
 
     &_hover {
-      .g-cursor__circle {
-        opacity: 0;
-        width: 60px;
-        height: 60px;
-        transition: width .6s ease,
-          height .6s ease,
-          opacity .6s ease;
-      }
+        .cursor__circle {
+            opacity: 0;
+            width: 60px;
+            height: 60px;
+            transition: width .6s ease,
+            height .6s ease,
+            opacity .6s ease;
+        }
     }
-  }
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+}
 </style>

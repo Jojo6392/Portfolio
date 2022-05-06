@@ -3,7 +3,7 @@
         <div class="menu">
             <div class="menu__item">
                 <span style="color: rgb(128, 91, 104);">About me</span>
-                <div class="menu__item__content" @mouseenter="onHover($event)" @mouseleave="onHover($event)">
+                <div class="menu__item__content" @mouseenter="onHover($event)" @mouseleave="onHover($event)" @click="redirectToPage(0)">
                     <img class="menu__item__img" src="../assets/dilophosaurus.png" alt="About me">
                     <div class="menu__item__content__text" style="background-color: rgba(128, 91, 104, 0.5);">
                         Here, you will be able to see more details about me
@@ -13,7 +13,7 @@
             </div>
             <div class="menu__item">
                 <span style="color: rgb(4, 141, 116);">Services</span>
-                <div class="menu__item__content" @mouseenter="onHover($event)" @mouseleave="onHover($event)">
+                <div class="menu__item__content" @mouseenter="onHover($event)" @mouseleave="onHover($event)" @click="redirectToPage(1)">
                     <img class="menu__item__img" src="../assets/spinosaurus.png" alt="Services">
                     <div class="menu__item__content__text" style="background-color: rgba(4, 141, 116, 0.5);">
                         Check out what can I do for you 
@@ -22,7 +22,7 @@
             </div>
             <div class="menu__item">
                 <span style="color: rgb(109, 133, 54);">Projects</span>
-                <div class="menu__item__content" @mouseenter="onHover($event)" @mouseleave="onHover($event)">
+                <div class="menu__item__content" @mouseenter="onHover($event)" @mouseleave="onHover($event)" @click="redirectToPage(2)">
                     <img class="menu__item__img" src="../assets/iguanodon.png" alt="Projects">
                     <div class="menu__item__content__text" style="background-color: rgba(109, 133, 54, 0.5);">
                         List of projects that I have currently completed 
@@ -31,7 +31,7 @@
             </div>
             <div class="menu__item">
                 <span style="color: rgb(0, 112, 143);">Professional Experiences | Formations</span>
-                <div class="menu__item__content" @mouseenter="onHover($event)" @mouseleave="onHover($event)">
+                <div class="menu__item__content" @mouseenter="onHover($event)" @mouseleave="onHover($event)" @click="redirectToPage(3)">
                     <img class="menu__item__img" src="../assets/therizinosaurus.png" alt="Professional Experiences">
                     <div class="menu__item__content__text" style="background-color: rgba(0, 112, 143, 0.5);">
                         Look at all my degrees and experiences 
@@ -59,6 +59,28 @@ export default {
             const contentToDisplay = e.target.children[1]
             contentToDisplay.classList.toggle("onHover")
             
+        },
+
+        redirectToPage: function(i) {
+            switch(i) {
+                case 0:
+                    this.$router.push({name: "AboutMe"})
+                    break;
+
+                case 1:
+                    this.$router.push({name: "Services"})
+                    break;
+
+                case 2:
+                    this.$router.push({name: "Projects"})
+                    break;
+
+                case 3:
+                    this.$router.push({name: "Experiences"})
+                    break;
+
+                default: break;
+            }
         },
     },
 }
