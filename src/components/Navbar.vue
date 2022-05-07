@@ -21,6 +21,10 @@
                 </div>
             </div>
         </div>
+        <div class="icons_menu">
+            <img class="icons_menu__home" src="../assets/home-circle-outline.svg" alt="home" @click="goHome">
+            <img class="icons_menu__return" src="../assets/arrow-left-bold-circle-outline.svg" @click="goBack" alt="back arrow">
+        </div>
         <button class="toggle-menu">
             <span></span>
         </button>
@@ -32,7 +36,6 @@ export default {
 
     data() {
         return {
-
         }
     },
 
@@ -88,6 +91,14 @@ export default {
             }, i * 100 + 300)
         },
 
+        goBack: function() {
+            this.$router.go(-1)
+        },
+
+        goHome: function() {
+            this.$router.push({name: "Home"})
+        },
+
         navigate: function(page) {
 
             // to close and reset the menu
@@ -140,7 +151,6 @@ export default {
     z-index: 10;
     background-color: transparent;
     display: flex;
-    flex-direction: row-reverse;
 }
 
 $menu-bg: rgb(165, 50, 50);
@@ -148,6 +158,22 @@ $hamburger-color: #fff;
 $hamburger-width: 50px;
 $hamburger-height: 50px;
 $hamburger-zindex: 10;
+
+.icons_menu {
+    flex: 50%;
+
+    &__home {
+        width: 48px;
+        margin: 1em;
+        margin-left: 2em;
+    }
+
+    &__return {
+        width: 48px;
+        margin: 1em;
+        margin-left: 0;
+    }
+}
 
 .toggle-menu {
     margin: 1em;
