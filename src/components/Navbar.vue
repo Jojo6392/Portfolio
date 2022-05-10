@@ -1,33 +1,35 @@
 <template>
     <div class="navbar">
         <div id="menu">
-            <img class="navbar__logo" src="../assets/logo.png" alt="logo" @click="navigate(0)">
+            <img class="navbar__logo" src="../assets/global/logo.png" alt="logo" @click="navigate(0)">
             <div class="hyperliens">
                 <div class="hyperlien">
                     <div id="lien" class="hidden" @click="navigate(1)">About me</div>
-                    <img class="img__lien" src="../assets/cursor.svg" alt="1">
+                    <img class="img__lien" src="../assets/global/cursor.svg" alt="1">
                 </div>
                 <div class="hyperlien">
                     <div id="lien" class="hidden" @click="navigate(2)">Services</div>
-                    <img class="img__lien" src="../assets/cursor.svg" alt="2">
+                    <img class="img__lien" src="../assets/global/cursor.svg" alt="2">
                 </div>
                 <div class="hyperlien">
                     <div id="lien" class="hidden" @click="navigate(3)">Projects</div>
-                    <img class="img__lien" src="../assets/cursor.svg" alt="3">
+                    <img class="img__lien" src="../assets/global/cursor.svg" alt="3">
                 </div>
                 <div class="hyperlien">
                     <div id="lien" class="hidden" @click="navigate(4)">Professional experiences | Formations</div>
-                    <img class="img__lien" src="../assets/cursor.svg" alt="4">
+                    <img class="img__lien" src="../assets/global/cursor.svg" alt="4">
                 </div>
             </div>
         </div>
-        <div class="icons_menu">
-            <img class="icons_menu__home" src="../assets/home-circle-outline.svg" alt="home" @click="goHome">
-            <img class="icons_menu__return" src="../assets/arrow-left-bold-circle-outline.svg" @click="goBack" alt="back arrow">
+        <div class="menu__items">
+            <div class="icons_menu">
+                <img class="icons_menu__home" src="../assets/navbar/home-circle-outline.svg" alt="home" @click="goHome">
+                <img class="icons_menu__return" src="../assets/navbar/arrow-left-bold-circle-outline.svg" @click="goBack" alt="back arrow">
+            </div>
+            <button class="toggle-menu">
+                <span></span>
+            </button>
         </div>
-        <button class="toggle-menu">
-            <span></span>
-        </button>
     </div>
 </template>
 
@@ -150,6 +152,9 @@ export default {
     height: 100px;
     z-index: 10;
     background-color: transparent;
+}
+
+.menu__items {
     display: flex;
 }
 

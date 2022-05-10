@@ -2,10 +2,10 @@
     <div class="wrapper">
         <div class="title">
             <div class="title__text">About me</div>
-            <img class="title__img" src="../assets/cursor.svg" alt="">
+            <img class="title__img" src="../assets/global/cursor.svg" alt="">
         </div>
         <div class="img">
-            <img class="profile_picture" src="../assets/IMG_0006.jpg" alt="profil picture" />
+            <img class="profile_picture" src="../assets/about/IMG_0006.jpg" alt="profil picture" />
             <div class="img__color"></div>
         </div>
 
@@ -44,22 +44,22 @@
         <div class="interest">
             <div class="interest__title">Additional information</div>
             <div class="interest__item dino">
-                <img class="interest__logo" src="../assets/interest/dino.svg" alt="dino logo">
+                <img class="interest__logo" src="../assets/about/interest/dino.svg" alt="dino logo">
                 <span class="interest__text">Passionate about Prehistory</span>
             </div>
 
             <div class="interest__item animals">
-                <img class="interest__logo" src="../assets/interest/cat.svg" alt="cat logo">
+                <img class="interest__logo" src="../assets/about/interest/cat.svg" alt="cat logo">
                 <span class="interest__text">Wildlife Lover</span>
             </div>
 
             <div class="interest__item anime">
-                <img class="interest__logo" src="../assets/interest/bookshelf.svg" alt="anime logo">
+                <img class="interest__logo" src="../assets/about/interest/bookshelf.svg" alt="anime logo">
                 <span class="interest__text">Interest in Anime / Manga</span>
             </div>
 
             <div class="interest__item game">
-                <img class="interest__logo" src="../assets/interest/microsoft-xbox-controller.svg" alt="game logo">
+                <img class="interest__logo" src="../assets/about/interest/microsoft-xbox-controller.svg" alt="game logo">
                 <span class="interest__text">Regular player on many games</span>
             </div>
         </div>

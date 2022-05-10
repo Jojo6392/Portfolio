@@ -1,15 +1,16 @@
 <template>
     <div id="app">
-        <Navbar id="navbar" :class="{ sticky: needSticky }" />
+        <Navbar id="navbar" class="sticky" />
         <div class="container">
             <!-- Cursor : hover needed to not see the cursor block when travelling on the site -->
-            <div :class="[ 'cursor', { 'cursor_hover': hover }, {'cursor_hide': hideCursor} ]">
-                <div :style="cursorCircle" class="cursor__circle"></div>
-                <img class="cursor__point" ref="point" :style="cursorPoint" src="./assets/cursor.svg" alt="cursor">
-            </div>
+            
             <vue-page-transition name="zoom">
                 <router-view />
             </vue-page-transition>
+            <div :class="[ 'cursor', { 'cursor_hover': hover }, {'cursor_hide': hideCursor} ]">
+                <div :style="cursorCircle" class="cursor__circle"></div>
+                <img class="cursor__point" ref="point" :style="cursorPoint" src="./assets/global/cursor.svg" alt="cursor">
+            </div>
         </div>
     </div>
 </template>
