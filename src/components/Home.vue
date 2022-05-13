@@ -196,6 +196,7 @@ a {
     margin: 10px;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     text-align: center;
     justify-content: center;
     align-items: center;
@@ -331,8 +332,8 @@ span.menu__title {
                 margin: 0 20px 0 20px;
 
                 &__text {
-                    height: 95%;
-                    font-size: 64px;
+                    height: 91%;
+                    font-size: 44px;
                 }
             }
             &__img {

@@ -31,7 +31,7 @@
 
                 <p>
                     J'aime évoluer dans un endroit calme avec l'espace et les outils nécessaire au bon fonctionnement de mon métier<span class="spacing">,</span> 
-                    j'aime aussi <b>travailler avec des équipes</b> même si <b>évoluer tout seul</b> ne me dérange pas.
+                    j'aime aussi <b>travailler avec des équipes</b> même si <b>évoluer en autonomie</b> ne me dérange pas.
                 </p>
                 <p>
                     <b>Sérieux</b><span class="spacing">,</span> <b>attentif</b> et <b>dynamique</b><span class="spacing">,</span> je m’investis pleinement dans chaque mission confiée<span class="spacing">.</span> 

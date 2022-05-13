@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="projects">
         PROJECTS
     </div>
 </template>
@@ -10,6 +10,11 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+.projects {
+    display: flex;
+    justify-content: center;
+    margin: 1em;
+    margin-top: 5em;
+}
 </style>
