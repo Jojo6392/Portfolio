@@ -1,13 +1,6 @@
 <template>
     <div class="project">
-        <vue-flux
-            :options="options"
-            :images="data.images"
-            :transitions="transitions"
-            style="width: 100%;"
-            >
-        </vue-flux> 
-            <!-- <img src="../assets/projects/portfolio/image1.png" alt=""> -->
+        <img class="thumbnail" :src="data.images[1]" alt="">
         <div class="project__content">
             <div class="project__title">
                 <div class="project__title__date">{{ data.date }}</div>
@@ -30,25 +23,12 @@
 </template>
 
 <script>
-import { VueFlux } from "vue-flux"
 
 export default {
 
     data() {
         return {
-            options: {
-                allowFullscreen: false,
-                allowToSkipTransition: true,
-                autohideTime: 2500,
-                autoplay: true,
-                bindKeys: false,
-                delay: 3000,
-                enableGestures: false,
-                infinite: true,
-                lazyLoad: true,
-                lazyLoadAfter: 3,
-            },
-            transitions: ['kenburn'],
+            
         }
     },
 
@@ -60,7 +40,6 @@ export default {
     },
 
     components: {
-        VueFlux,
     }
 
 }
@@ -78,7 +57,7 @@ $third_color: #C9CAD9;
 }
 
 .project {
-    display: flex;
+    display: none;
     flex-direction: row;
     align-items: center;
     margin-top: -50px;
@@ -142,12 +121,17 @@ $third_color: #C9CAD9;
         & img {
             padding: 10px;
             width: 32px;
+            cursor: none;
             filter: invert(43%) sepia(79%) saturate(322%) hue-rotate(37deg) brightness(95%) contrast(85%);
 
             &:hover {
                 filter: invert(89%) sepia(18%) saturate(186%) hue-rotate(199deg) brightness(91%) contrast(85%);
             }
         }
+    }
+
+    .thumbnail {
+        width: 50vw;
     }
 }
 

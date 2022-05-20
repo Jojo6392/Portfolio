@@ -10,7 +10,6 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
-    "vue-flux": "^6.4.0",
     "vue-page-transition": "^0.2.2",
     "vue-router": "^3.5.3"
   },
