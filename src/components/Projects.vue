@@ -9,8 +9,11 @@
                 <Project v-bind:data="item" :class="{ active: item.isActive }"/>
             </div>
         </div>
-        <img class="chevron chevron__droite" src="../assets/projects/chevron-left.svg" @click="step(false)" alt="left arrow">
-        <img class="chevron chevron__gauche" src="../assets/projects/chevron-right.svg" @click="step(true)" alt="right arrow">
+        <div class="carousel_navigation">
+            <img class="carousel_navigation__chevron" src="../assets/projects/chevron-left.svg" @click="step(false)" alt="left arrow">
+            <div class="carousel_navigation__number">{{ index + 1 }} <span class="carousel_navigation__number_2">/ {{ data.length }}</span></div>
+            <img class="carousel_navigation__chevron" src="../assets/projects/chevron-right.svg" @click="step(true)" alt="right arrow">
+        </div>
     </div>
 </template>
 
@@ -25,21 +28,140 @@ export default {
                 {
                     name: "Portfolio",
                     date: "Avril - Juin 2022",
-                    desc: "Site sur lequel vous êtes actuellement ! Créer pendant ma licence professionnelle sous le framework Vue 2.",
+                    desc: "Site sur lequel vous êtes actuellement ! Créer pendant mon temps libre sous le framework Vue 2.",
                     tags: ["VueJS", "SCSS"],
                     links: ["#", "https://github.com/Jojo6392/Portfolio"],
-                    images: [require('../assets/projects/portfolio/image1.png'), require('../assets/projects/portfolio/image2.png')],
+                    images: [
+                        {
+                            lien: require('../assets/projects/portfolio/image1.png'),
+                            isActive: true,
+                        },
+                        {
+                            lien: require('../assets/projects/portfolio/image2.png'),
+                            isActive: false,
+                        },
+                        
+                    ],
                     isActive: true,
                 },
                 {
-                    name: "TEST",
-                    date: "Avril - Juin 2022",
-                    desc: "Site sur lequel vous êtes actuellement ! Créer pendant ma licence professionnelle sous le framework Vue 2.",
-                    tags: ["VueJS", "SCSS"],
-                    links: ["#", "https://github.com/Jojo6392/Portfolio"],
-                    images: [require('../assets/global/spinosaurus.png'), require('../assets/global/spinosaurus.png')],
+                    name: "FYC",
+                    date: "Janvier - Avril 2022",
+                    desc: "Projet créé pendant ma licence professionnelle en groupe de 4, je m'occupais de la partie front. Nous avons utilisé le framework Vue pour le front et Symfony pour le back. L'objectif était de faire un site au style de fonctionnement égale à StackOverflow.",
+                    tags: ["VueJS", "SCSS", "Symfony"],
+                    links: ["https://fyc.killianm.fr/", "https://github.com/Ki2lian/FYC/tree/killian"],
+                    images: [
+                        {
+                            lien: require('../assets/projects/fyc/image1.png'),
+                            isActive: true,
+                        },
+                        {
+                            lien: require('../assets/projects/fyc/image2.png'),
+                            isActive: false,
+                        },
+                        {
+                            lien: require('../assets/projects/fyc/image3.png'),
+                            isActive: false,
+                        },
+                        {
+                            lien: require('../assets/projects/fyc/image4.png'),
+                            isActive: false,
+                        },
+                        {
+                            lien: require('../assets/projects/fyc/image5.png'),
+                            isActive: false,
+                        },
+                        {
+                            lien: require('../assets/projects/fyc/image6.png'),
+                            isActive: false,
+                        },
+                        
+                    ],
                     isActive: false,
-                }
+                },
+                {
+                    name: "Application de restaurant",
+                    date: "Janvier 2022",
+                    desc: "Ce projet est une application de prise de commande et de gestion d'un restaurant effectué sous le framework Symfony pendant ma licence professionnelle. De plus, celui-ci se trouve sur un Dockerfile.",
+                    tags: ["PHP", "Symfony", "Twig", "Dockerfile", "CSS"],
+                    links: ["", "https://github.com/Jojo6392/Restaurant---Symfony"],
+                    images: [
+                        {
+                            lien: require('../assets/projects/resto/image1.png'),
+                            isActive: true,
+                        },
+                        {
+                            lien: require('../assets/projects/resto/image2.png'),
+                            isActive: false,
+                        },
+                        {
+                            lien: require('../assets/projects/resto/image3.png'),
+                            isActive: false,
+                        },
+                        {
+                            lien: require('../assets/projects/resto/image4.png'),
+                            isActive: false,
+                        },
+                        {
+                            lien: require('../assets/projects/resto/image5.png'),
+                            isActive: false,
+                        },
+                        {
+                            lien: require('../assets/projects/resto/image6.png'),
+                            isActive: false,
+                        },
+                        {
+                            lien: require('../assets/projects/resto/image7.png'),
+                            isActive: false,
+                        },
+                        
+                    ],
+                    isActive: false,
+                },
+                {
+                    name: "Dinosaur List iOS",
+                    date: "10 février 2022",
+                    desc: "Application iOS qui permet de créer des listes de dinosaures avec plusieurs informations ainsi que quelques fonctionnalités et les garder sur une collection firestore de firebase.",
+                    tags: ["Swift", "iOS", "Firebase"],
+                    links: ["", "https://github.com/Jojo6392/DinosauresList-iOS"],
+                    images: [
+                        {
+                            lien: require('../assets/projects/dino-iOS/no_image.webp'),
+                            isActive: true,
+                        },
+                    ],
+                    isActive: false,
+                },
+                {
+                    name: "Aeroports Maps",
+                    date: "3-4 Janvier 2022",
+                    desc: "Site qui permet de visualiser, créer, modifier et supprimer des aéroports sur une map dont les données sont stockées sur une base de données. Le tout est géré par une API créée sous PHP.",
+                    tags: ["PHP", "API", "JS", "HTML", "CSS"],
+                    links: ["", "https://github.com/Jojo6392/Aeroports-API-Maps"],
+                    images: [
+                        {
+                            lien: require('../assets/projects/aeroports/image1.png'),
+                            isActive: true,
+                        },
+                        {
+                            lien: require('../assets/projects/aeroports/image2.png'),
+                            isActive: false,
+                        },
+                        {
+                            lien: require('../assets/projects/aeroports/image3.png'),
+                            isActive: false,
+                        },
+                        {
+                            lien: require('../assets/projects/aeroports/image4.png'),
+                            isActive: false,
+                        },
+                        {
+                            lien: require('../assets/projects/aeroports/image5.png'),
+                            isActive: false,
+                        },
+                    ],
+                    isActive: false,
+                },
             ],
             index: 0,
         }
@@ -112,31 +234,39 @@ $third_color: #C9CAD9;
             position: relative;
             width: 100vw;
             height: 55vh;
-            overflow-y: hidden;
         }
     }
 
     .active {
         display: flex;
+        flex-wrap: wrap;
     }
 
-    .chevron {
+    .carousel_navigation {
         position: absolute;
         bottom: 0;
-        font-size: 44px;
-        margin: 1em;
-        filter: invert(97%) sepia(1%) saturate(7361%) hue-rotate(187deg) brightness(83%) contrast(105%);
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
 
-        &:hover {
-            filter: invert(52%) sepia(7%) saturate(3200%) hue-rotate(37deg) brightness(90%) contrast(81%);
-        }
-        
-        &__droite {
-            right: 50%;
+        &__chevron {
+            font-size: 44px;
+            margin: 1em;
+            filter: invert(97%) sepia(1%) saturate(7361%) hue-rotate(187deg) brightness(83%) contrast(105%);
+
+            &:hover {
+                filter: invert(52%) sepia(7%) saturate(3200%) hue-rotate(37deg) brightness(90%) contrast(81%);
+            }
         }
 
-        &__gauche {
-            left: 50%;
+        &__number {
+            font-size: 34px;
+            color: $color;
+            &_2 {
+                font-size: 30px;
+            }
         }
     }
 }

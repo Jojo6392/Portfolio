@@ -23,8 +23,8 @@
         </div>
         <div class="menu__items">
             <div class="icons_menu">
-                <img class="icons_menu__home" src="../assets/navbar/home-circle-outline.svg" alt="home" @click="goHome">
-                <img class="icons_menu__return" src="../assets/navbar/arrow-left-bold-circle-outline.svg" @click="goBack" alt="back arrow">
+                <img class="icons_menu__home icons_menu__colors" src="../assets/navbar/home-circle-outline.svg" alt="home" @click="goHome">
+                <img class="icons_menu__return icons_menu__colors" src="../assets/navbar/arrow-left-bold-circle-outline.svg" @click="goBack" alt="back arrow">
             </div>
             <button class="toggle-menu">
                 <span></span>
@@ -177,6 +177,12 @@ $hamburger-zindex: 10;
         width: 48px;
         margin: 1em;
         margin-left: 0;
+    }
+
+    &__colors {
+        &:hover {
+            filter: invert(43%) sepia(79%) saturate(322%) hue-rotate(37deg) brightness(95%) contrast(85%);
+        }
     }
 }
 

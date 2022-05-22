@@ -1,6 +1,9 @@
 <template>
     <div class="project">
-        <img class="thumbnail" :src="data.images[1]" alt="">
+        <div class="thumbnail">
+            <img v-for="(image, index) in data.images" :key="index" class="thumbnail__img" :class="{ active: image.isActive, hidden: !image.isActive }" :src="image.lien" alt="">
+            <div class="thumbnail__text">{{ index + 1 }} / {{ data.images.length }}</div>
+        </div>
         <div class="project__content">
             <div class="project__title">
                 <div class="project__title__date">{{ data.date }}</div>
@@ -28,19 +31,41 @@ export default {
 
     data() {
         return {
-            
+            index: -1,
         }
     },
 
     props: {
         data: {
-            Array,
+            Object,
             default: null,
         }
     },
 
-    components: {
-    }
+    watch: {
+        index (newVal) {
+            const imgTab = this.data.images
+            
+            if(newVal == imgTab.length - 1) {
+                setTimeout(() => {
+                    imgTab[this.index].isActive = false
+                    this.index = 0
+                    imgTab[this.index].isActive = true
+                }, 5000)
+            }
+            else {
+                setTimeout(() => {
+                    imgTab[this.index].isActive = false
+                    this.index = newVal + 1
+                    imgTab[this.index].isActive = true
+                }, 5000)
+            }
+        }
+    },
+
+    mounted() {
+        this.index += 1
+    },
 
 }
 </script>
@@ -50,19 +75,12 @@ $color: #6D8536;
 $second_color: #9bb868;
 $third_color: #C9CAD9;
 
-.hidden {
-    opacity: 0;
-    transition-property: opacity;
-    transition-duration: 250ms;
-}
-
 .project {
     display: none;
     flex-direction: row;
     align-items: center;
     margin-top: -50px;
-    margin: 1em;
-    margin-top: 2.5em;
+    margin-top: 0.5em;
     font-size: 28px;
     font-family: 'Acme';
     justify-content: center;
@@ -98,6 +116,7 @@ $third_color: #C9CAD9;
         margin-bottom: 20px;
         font-family: 'Poppins Light';
         font-size: 24px;
+        width: 40vw;
     }
 
     &__tags {
@@ -132,6 +151,51 @@ $third_color: #C9CAD9;
 
     .thumbnail {
         width: 50vw;
+        height: 56vh;
+        position: relative;
+
+        &__img {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 480px; //temporaire
+            border: 5px solid $color;
+            border-radius: 20px;
+            box-shadow: 10px -3px 5px -1px rgba(109,133,54,0.3);
+        }
+
+        &__text {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            color: $third_color;
+            font-size: 20px;
+        }
+    }
+}
+
+// CAROUSEL CSS
+.active {
+    animation-name: displayAnimation;
+    animation-duration: 2s;
+    animation-direction: normal;
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes displayAnimation {
+    from {
+        display: none;
+        opacity: 0;
+    }
+
+    to {
+        display: block;
+        opacity: 1;
     }
 }
 

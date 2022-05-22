@@ -5,7 +5,7 @@
             <img class="title__img" src="../assets/global/cursor.svg" alt="">
         </div>
         <div class="img">
-            <img class="profile_picture" src="../assets/about/IMG_0006.jpg" alt="profil picture" />
+            <img class="profile_picture" src="../assets/about/profile_picture.jpg" alt="profil picture" />
             <div class="img__color"></div>
         </div>
 
