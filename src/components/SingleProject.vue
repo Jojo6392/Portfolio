@@ -79,12 +79,12 @@ $third_color: #C9CAD9;
 
 .project {
     display: none;
+    font-size: 28px;
+    font-family: 'Acme';
     flex-direction: row;
     align-items: center;
     margin-top: -50px;
     margin-top: 0.5em;
-    font-size: 28px;
-    font-family: 'Acme';
     justify-content: center;
 
     &__content {
@@ -186,49 +186,71 @@ $third_color: #C9CAD9;
 //RESPONSIVE
 @media (max-width: 1800px) {
     .project {
-        &__content {
-            margin-top: 3em;
-        }
-    }
-}
-
-@media (min-width: 900px) and (max-width: 1500px) {
-    .thumbnail {
-        width: 90vw !important;
-        height: 35vh !important;
-    }
-}
-
-@media (max-width: 1500px) {
-    .thumbnail {
-        height: 75vh !important;
-    }
-}
-
-@media (max-width: 900px) {
-    .thumbnail {
-        width: 90vw !important;
-        height: 33vh !important;
-    }
-
-    .project {
-        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
 
         &__content {
-            margin-top: 2em;
-            text-align: center;
-        }
-
-        &__desc {
-            width: 70vw;
-        }
-
-        &__tags, &__links {
+            display: flex;
+            flex-direction: column;
             justify-content: center;
         }
+    }
 
+    .thumbnail {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        &__img {
+            width: 80vw;
+            height: 40vh;
+
+            & img {
+                width: inherit;
+                height: inherit;
+            }
+        }
     }
 }
+
+// @media (min-width: 900px) and (max-width: 1500px) {
+//     .thumbnail {
+//         width: 90vw !important;
+//         height: 35vh !important;
+//     }
+// }
+
+// @media (max-width: 1500px) {
+//     .thumbnail {
+//         height: 75vh !important;
+//     }
+// }
+
+// @media (max-width: 900px) {
+//     .thumbnail {
+//         width: 90vw !important;
+//         height: 33vh !important;
+//     }
+
+//     .project {
+//         width: 100vw;
+
+//         &__content {
+//             margin-top: 2em;
+//             text-align: center;
+//         }
+
+//         &__desc {
+//             width: 70vw;
+//         }
+
+//         &__tags, &__links {
+//             justify-content: center;
+//         }
+
+//     }
+// }
 
 // CAROUSEL CSS
 .active {
