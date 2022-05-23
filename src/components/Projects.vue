@@ -438,7 +438,7 @@ $third_color: #C9CAD9;
 //MOYENNE RESO
 @media (max-width: 1500px) {
     .items {
-        height: 130vh;
+        height: 145vh;
     }
 
     .project {
@@ -509,19 +509,6 @@ $third_color: #C9CAD9;
 @media (max-width: 500px) {
     .thumbnail {
         height: 27vh;
-    }
-}
-
-//responsive carousel navigation
-@media (max-height: 740px) {
-    .items {
-        height: 100vh;
-    }
-}
-
-@media (min-height: 740px) {
-    .items {
-        height: 150vh;
     }
 }
 </style>
