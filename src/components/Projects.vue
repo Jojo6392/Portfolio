@@ -29,7 +29,7 @@ export default {
                     name: "Portfolio",
                     date: "Avril - Juin 2022",
                     desc: "Site sur lequel vous êtes actuellement ! Créer pendant mon temps libre sous le framework Vue 2.",
-                    tags: ["VueJS", "SCSS"],
+                    tags: ["VueJS", "SCSS", "JS", "HTML"],
                     links: ["#", "https://github.com/Jojo6392/Portfolio"],
                     images: [
                         {
@@ -267,6 +267,30 @@ $third_color: #C9CAD9;
             &_2 {
                 font-size: 30px;
             }
+        }
+    }
+}
+
+@media (min-width: 900px) and (max-width: 1800px) {
+    .projects {
+        margin: 0;
+    }
+}
+
+@media (max-width: 900px) {
+    .projects {
+        margin: 0;
+        margin-top: 2.5em;
+    }
+
+    .carousel_navigation {
+        
+        &__chevron {
+            font-size: 34px !important;
+        }
+
+        &__number {
+            width: 50px;
         }
     }
 }

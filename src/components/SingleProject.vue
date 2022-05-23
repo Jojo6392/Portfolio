@@ -1,7 +1,9 @@
 <template>
     <div class="project">
         <div class="thumbnail">
-            <img v-for="(image, index) in data.images" :key="index" class="thumbnail__img" :class="{ active: image.isActive, hidden: !image.isActive }" :src="image.lien" alt="">
+            <div class="thumbnail__img">
+                <img v-for="(image, index) in data.images" :key="index" :class="{ active: image.isActive, hidden: !image.isActive }" :src="image.lien" alt="">
+            </div>
             <div class="thumbnail__text">{{ index + 1 }} / {{ data.images.length }}</div>
         </div>
         <div class="project__content">
@@ -160,9 +162,14 @@ $third_color: #C9CAD9;
             top: 0;
             left: 0;
             height: 480px; //temporaire
-            border: 5px solid $color;
             border-radius: 20px;
-            box-shadow: 10px -3px 5px -1px rgba(109,133,54,0.3);
+
+            & img {
+                border-radius: 20px;
+                border: 5px solid $color;
+                box-shadow: 10px -3px 5px -1px rgba(109,133,54,0.3);
+                width: 100%;
+            }
         }
 
         &__text {
@@ -173,6 +180,53 @@ $third_color: #C9CAD9;
             color: $third_color;
             font-size: 20px;
         }
+    }
+}
+
+//RESPONSIVE
+@media (max-width: 1800px) {
+    .project {
+        &__content {
+            margin-top: 3em;
+        }
+    }
+}
+
+@media (min-width: 900px) and (max-width: 1500px) {
+    .thumbnail {
+        width: 90vw !important;
+        height: 35vh !important;
+    }
+}
+
+@media (max-width: 1500px) {
+    .thumbnail {
+        height: 75vh !important;
+    }
+}
+
+@media (max-width: 900px) {
+    .thumbnail {
+        width: 90vw !important;
+        height: 33vh !important;
+    }
+
+    .project {
+        width: 100vw;
+
+        &__content {
+            margin-top: 2em;
+            text-align: center;
+        }
+
+        &__desc {
+            width: 70vw;
+        }
+
+        &__tags, &__links {
+            justify-content: center;
+        }
+
     }
 }
 

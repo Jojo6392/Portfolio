@@ -15,18 +15,18 @@
             <div class="about__content">
                 <p>
                     Hello à tous <span class="spacing">! </span>Je suis actuellement <b>alternant développeur web</b> chez <b>Edostar Group</b><span class="spacing">.</span>
-                    De plus, je suis une formation en licence professionnelle option Développement Mobile à l'<b>Université de Cergy</b> sur le site de <b>Genevilliers</b>.
+                    De plus, je suis une formation en licence professionnelle option Développement Mobile à l'<b>Université de Cergy</b> sur le site de <b>Gennevilliers</b>.
                 </p>
 
                 <p>
                     Je travaille principalement avec <b>Vue</b> en <b>front-end</b> et <b>Node / PHP</b> pour le <b>back-end</b><span class="spacing">.</span> J'essaye de m'orienter le plus possible
-                    en tant que <b>developpeur full-stack</b><span class="spacing">.</span> Dans mon poste actuel<span class="spacing">,</span> j'évolue en autodidacte 
+                    en tant que <b>développeur full-stack</b><span class="spacing">.</span> Dans mon poste actuel<span class="spacing">,</span> j'évolue en autodidacte 
                     ce qui me permet de gérer tous les aspects d'un site web<span class="spacing">.</span>
                 </p>
 
                 <p>
                     Soucieux de l’adaptabilité et du rendu de mes réalisations<span class="spacing">,</span> je prends toujours en compte le côté <b>responsive</b> via des <b>frameworks CSS</b>
-                    ou par mes propres moyens et communique facilement avec le côté UX/UI pour que l'attente du client soit respecté à 100%.
+                    ou par mes propres moyens et communique facilement avec le côté UX/UI pour que l'attente du client soit respectée à 100%.
                 </p>
 
                 <p>
@@ -36,7 +36,7 @@
                 <p>
                     <b>Sérieux</b><span class="spacing">,</span> <b>attentif</b> et <b>dynamique</b><span class="spacing">,</span> je m’investis pleinement dans chaque mission confiée<span class="spacing">.</span> 
                     Je suis apte à accomplir des tâches avec <b>vigueur</b> et <b>enthousiasme</b><span class="spacing">.</span> 
-                    Je suis aussi la <b>veille technologique</b> car je suis reste un passioné d'informatique.
+                    Je suis aussi la <b>veille technologique</b> car je reste un passionné d'informatique.
                 </p>
             </div>
             
