@@ -9,9 +9,8 @@
             <div v-for="item in data" :key="item.name" class="project" :class="{ active__project: item.isActive }">
                 <div class="thumbnail">
                     <div class="thumbnail__img">
-                        <img v-for="(image, index) in item.images" :key="index" :class="{ active__img: image.isActive, hidden: !image.isActive }" :src="image.lien" alt="">
+                        <img v-for="(image, index) in item.images" :key="index" :class="{ active__img: image.isActive, hidden: !image.isActive }" :src="image.lien">
                     </div>
-                    <div class="thumbnail__text">{{ indexImg + 1 }} / {{ item.images.length }}</div>
                 </div>
                 <div class="project__content">
                     <div class="project__date">{{ item.date }}</div>
@@ -364,10 +363,6 @@ $third_color: #C9CAD9;
             box-shadow: 10px -3px 5px -1px rgba(109,133,54,0.3);
         }
     }
-
-    &__text {
-        color: $third_color;
-    }
 }
 
 .carousel_navigation {
@@ -437,11 +432,6 @@ $third_color: #C9CAD9;
 
     .thumbnail {
         height: 40vh;
-
-        &__text {
-            position: absolute;
-            bottom: -5%;
-        }
     }
 }
 
@@ -467,10 +457,6 @@ $third_color: #C9CAD9;
 
         &__img {
             width: 80vw;
-        }
-
-        &__text {
-            font-size: 24px;
         }
     }
 }
@@ -511,9 +497,6 @@ $third_color: #C9CAD9;
 
     .thumbnail {
         height: 40vh;
-        &__text {
-            font-size: 18px;
-        }
     }
 }
 
@@ -533,6 +516,12 @@ $third_color: #C9CAD9;
 @media (max-height: 740px) {
     .items {
         height: 100vh;
+    }
+}
+
+@media (min-height: 740px) {
+    .items {
+        height: 150vh;
     }
 }
 </style>
