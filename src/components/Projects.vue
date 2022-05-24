@@ -141,12 +141,16 @@ export default {
                     name: "Dinosaur List iOS",
                     date: "10 février 2022",
                     desc: "Application iOS qui permet de créer des listes de dinosaures avec plusieurs informations ainsi que quelques fonctionnalités et les garder sur une collection firestore de firebase.",
-                    tags: ["Swift", "iOS", "Firebase"],
+                    tags: ["Swift", "iOS", "Firebase", "Xcode"],
                     links: ["", "https://github.com/Jojo6392/DinosauresList-iOS"],
                     images: [
                         {
-                            lien: require('../assets/projects/dino-iOS/no_image.webp'),
+                            lien: require('../assets/projects/dino-iOS/image1.png'),
                             isActive: true,
+                        },
+                        {
+                            lien: require('../assets/projects/dino-iOS/image2.png'),
+                            isActive: false,
                         },
                     ],
                     isActive: false,
