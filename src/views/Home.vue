@@ -37,43 +37,41 @@
                         </div>
                     </a>
                 </div>
-                <!-- <img class="home__header__gif" src="../assets/header/header_dino_gif.gif" alt=""> -->
             </div>
             <div class="menu">
                 <div class="menu__item">
-                    <span class="menu__title" style="color: rgb(128, 91, 104);">About me</span>
                     <div class="menu__item__content" @mouseenter="onHover($event)" @mouseleave="onHover($event)" @click="redirectToPage(0)">
-                        <img class="menu__item__img" src="../assets/global/dilophosaurus.png" alt="About me">
+                        <img class="menu__item__img" src="../assets/global/a_propos_de_moi.png" alt="About me">
                         <div class="menu__item__content__text" style="background-color: rgba(128, 91, 104, 0.5); backdrop-filter: blur(2px);">
-                            Here, you will be able to see more details about me
+                            <!-- Here, you will be able to see more details about me -->
+                            Ici, vous pourrez voir plus de details sur moi
                         </div>
                     </div>
                     
                 </div>
                 <div class="menu__item">
-                    <span class="menu__title" style="color: rgb(4, 141, 116);">Services</span>
                     <div class="menu__item__content" @mouseenter="onHover($event)" @mouseleave="onHover($event)" @click="redirectToPage(1)">
-                        <img class="menu__item__img" src="../assets/global/spinosaurus.png" alt="Services">
+                        <img class="menu__item__img" src="../assets/global/competences.png" alt="Services">
                         <div class="menu__item__content__text" style="background-color: rgba(4, 141, 116, 0.5); backdrop-filter: blur(2px);">
-                            Check out what can I do for you 
+                            Voir les competences acquises
                         </div>
                     </div>
                 </div>
                 <div class="menu__item">
-                    <span class="menu__title" style="color: rgb(109, 133, 54);">Projects</span>
                     <div class="menu__item__content" @mouseenter="onHover($event)" @mouseleave="onHover($event)" @click="redirectToPage(2)">
-                        <img class="menu__item__img" src="../assets/global/iguanodon.png" alt="Projects">
+                        <img class="menu__item__img" src="../assets/global/realisations.png" alt="Projects">
                         <div class="menu__item__content__text" style="background-color: rgba(109, 133, 54, 0.5); backdrop-filter: blur(2px);">
-                            List of projects that I have currently completed 
+                            <!-- List of projects that I have currently completed  -->
+                            Liste de projets realises
                         </div>
                     </div>
                 </div>
                 <div class="menu__item">
-                    <span class="menu__title" style="color: rgb(0, 112, 143);">Experiences | Formations</span>
                     <div class="menu__item__content" @mouseenter="onHover($event)" @mouseleave="onHover($event)" @click="redirectToPage(3)">
-                        <img class="menu__item__img" src="../assets/global/therizinosaurus.png" alt="Professional Experiences">
+                        <img class="menu__item__img" src="../assets/global/parcours.png" alt="Professional Experiences">
                         <div class="menu__item__content__text" style="background-color: rgba(0, 112, 143, 0.5); backdrop-filter: blur(2px);">
-                            Look at all my degrees and experiences 
+                            <!-- Look at all my degrees and experiences  -->
+                            Voir mes formations et experiences
                         </div>
                     </div>
                 </div>
