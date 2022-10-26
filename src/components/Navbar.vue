@@ -152,13 +152,18 @@ export default {
     height: 100px;
     z-index: 10;
     background-color: transparent;
+
+    &__logo {
+        height: 33%;
+        width: auto;
+    }
 }
 
 .menu__items {
     display: flex;
 }
 
-$menu-bg: rgb(165, 50, 50);
+$menu-bg: rgb(113, 30, 30);
 $hamburger-color: #fff;
 $hamburger-width: 50px;
 $hamburger-height: 50px;
@@ -278,14 +283,20 @@ $hamburger-zindex: 10;
     }
 }
 
+.hyperliens {
+    display: flex;
+    flex-direction: column;
+    height: 67%;
+}
+
 .hyperlien {
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     overflow: hidden;
-    height: 150px;
-    width: 450px;
+    height: 15vh;
+    width: 40vh;
     text-align: left;
 }
 
@@ -348,10 +359,7 @@ $hamburger-zindex: 10;
     to { opacity: 1 }
 }
 
-.hyperliens {
-    transform: translateY(-75px);
-}
-
+// Mobile screen
 @media (max-width: 900px) {
     .navbar{
         &__logo {
@@ -360,11 +368,8 @@ $hamburger-zindex: 10;
     }
 
     .hyperlien {
-        height: 100px;
+        width: 100vw;
     }
 
-    .hyperliens {
-        transform: translateY(0px);
-    }
 }
 </style>
