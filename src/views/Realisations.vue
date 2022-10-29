@@ -29,28 +29,27 @@
         <div 
             class="project page"
             v-for="(item, indexItem) in realisations"
-            
-            :key="indexItem"
-        >
-        <!-- v-observe-visibility="{
+            v-observe-visibility="{
                 callback: (isVisible, entry) => visibilityChanged(isVisible, entry, indexItem),
                 once: true
-            }" -->
+            }"
+            :key="indexItem"
+        >
             <div class="card"
                 @click="toggleContent($event.target)"
             >
-                <div class="card__img carrousel">
+                <div class="card__img">
                     <div
-                        v-for="(item, index) in item.images"
+                        v-for="(image, index) in item.images"
                         :key="index"
-                        style="height: 100%"
+                        class="carrousel"
                     >
                         <div 
                             class="carrousel__item"
-                            :class="{ carrousel__item__active: item.isActive }"
-                            v-if="item.isActive">
+                            :class="{ carrousel__item__active: image.isActive }"
+                            v-if="image.isActive">
                             <img 
-                                :src="item.lien"
+                                :src="image.lien"
                             >
                         </div>
                     </div>
@@ -494,6 +493,7 @@ $third_color: #C9CAD9;
     position: relative;
 
     &__img {
+        position: relative;
         width: 100%;
         height: 100%;
         & img {
@@ -615,6 +615,10 @@ $third_color: #C9CAD9;
 
 //CAROUSSEL DES IMAGES
 .carrousel {
+    height: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
 
     &__item {
         display: flex;
