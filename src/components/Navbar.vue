@@ -4,19 +4,19 @@
             <img class="navbar__logo" src="../assets/global/logo.png" alt="logo" @click="navigate(0)">
             <div class="hyperliens">
                 <div class="hyperlien">
-                    <div id="lien" class="hidden" @click="navigate(1)">About me</div>
+                    <div id="lien" class="hidden" @click="navigate(1)">A propos de moi</div>
                     <img class="img__lien" src="../assets/global/cursor.svg" alt="1">
                 </div>
                 <div class="hyperlien">
-                    <div id="lien" class="hidden" @click="navigate(2)">Services</div>
+                    <div id="lien" class="hidden" @click="navigate(2)">Competences</div>
                     <img class="img__lien" src="../assets/global/cursor.svg" alt="2">
                 </div>
                 <div class="hyperlien">
-                    <div id="lien" class="hidden" @click="navigate(3)">Projects</div>
+                    <div id="lien" class="hidden" @click="navigate(3)">Realisations</div>
                     <img class="img__lien" src="../assets/global/cursor.svg" alt="3">
                 </div>
                 <div class="hyperlien">
-                    <div id="lien" class="hidden" @click="navigate(4)">Professional experiences | Formations</div>
+                    <div id="lien" class="hidden" @click="navigate(4)">Parcours</div>
                     <img class="img__lien" src="../assets/global/cursor.svg" alt="4">
                 </div>
             </div>
@@ -130,7 +130,7 @@ export default {
                     break;
 
                 case 3:
-                    this.$router.push({name: 'Projects'})
+                    this.$router.push({name: 'Realisations'})
                     break;
 
                 case 4:
@@ -361,15 +361,8 @@ $hamburger-zindex: 10;
 
 // Mobile screen
 @media (max-width: 900px) {
-    .navbar{
-        &__logo {
-            width: 90%;
-        }
-    }
-
     .hyperlien {
         width: 100vw;
     }
-
 }
 </style>

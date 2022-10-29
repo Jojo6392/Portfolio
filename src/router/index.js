@@ -5,6 +5,7 @@ import Home from "../views/Home.vue"
 import AboutMe from "../views/AboutMe.vue"
 import Services from "../views/Services.vue"
 import Projects from "../views/Projects.vue"
+import Realisations from "../views/Realisations.vue"
 import Experiences from "../views/Experiences.vue"
 import Test from "../components/Test.vue"
 
@@ -30,6 +31,11 @@ const routes = [
         path: "/projects",
         name: "Projects",
         component: Projects,
+    },
+    {
+        path: "/realisations",
+        name: "Realisations",
+        component: Realisations,
     },
     {
         path: "/experiences",

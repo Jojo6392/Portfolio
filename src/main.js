@@ -6,9 +6,12 @@ import "./assets/main.scss"
 import VuePageTransition from 'vue-page-transition'
 Vue.use(VuePageTransition)
 
+import VueObserveVisibility from 'vue-observe-visibility'
+Vue.use(VueObserveVisibility)
+
 Vue.config.productionTip = false
 
 new Vue({
-  render: h => h(App),
-  router,
+    render: h => h(App),
+    router,
 }).$mount('#app')

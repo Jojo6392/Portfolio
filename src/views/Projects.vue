@@ -4,12 +4,18 @@
             <div class="projects__title__text">Projects</div>
             <img class="projects__title__img" src="../assets/global/cursor.svg" alt="">
         </div>
-        <div class="items">
-            <!-- <Project v-bind:data="item" /> -->
-            <div v-for="item in data" :key="item.name" class="project" :class="{ active__project: item.isActive }">
+        <div class="items block block2">
+            <div v-for="item in data" 
+                :key="item.name" 
+                class="project" 
+                :class="{ active__project: item.isActive }"
+            >
                 <div class="thumbnail">
                     <div class="thumbnail__img">
-                        <img v-for="(image, index) in item.images" :key="index" :class="{ active__img: image.isActive, hidden: !image.isActive }" :src="image.lien">
+                        <img 
+                            v-for="(image, index) in item.images" :key="index" 
+                            :class="{ active__img: image.isActive, hidden: !image.isActive }" 
+                            :src="image.lien">
                     </div>
                 </div>
                 <div class="project__content">
@@ -17,7 +23,9 @@
                     <div class="project__name">{{ item.name }}</div>
                     <div class="project__desc">{{ item.desc }}</div>
                     <div class="project__tags">
-                        <div v-for="tag in item.tags" :key="tag" class="project__tag">{{tag}}</div>
+                        <div v-for="tag in item.tags" :key="tag" class="project__tag">
+                            {{tag}}
+                        </div>
                     </div>
                     <div class="project__links">
                         <a :href="item.links[0]" target="_blank">
@@ -244,12 +252,9 @@ $second_color: #9bb868;
 $third_color: #C9CAD9;
 
 .projects {
-    margin: 2.5em 1em 0 1em;
+    padding: 2.5em 1em 0 1em;
     font-size: 32px;
     font-family: 'Acme';
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 
     &__title {
         display: flex;
@@ -272,6 +277,10 @@ $third_color: #C9CAD9;
             z-index: 2;
             width: fit-content;
         }
+    }
+
+    &__desc {
+        width: 75%;
     }
 }
 

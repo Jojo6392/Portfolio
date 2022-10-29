@@ -111,7 +111,7 @@ export default {
                     break;
 
                 case 2:
-                    this.$router.push({name: "Projects"})
+                    this.$router.push({name: "Realisations"})
                     break;
 
                 case 3:
@@ -191,7 +191,8 @@ a {
 }
 
 .menu {
-    margin: 10px;
+    padding: 10px;
+    padding-top: 30px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -209,7 +210,7 @@ a {
         font-family: 'Jurassic Park';
 
         &__content {
-            margin: 0 40px 0 40px;
+            margin: 0 40px 10px 40px;
             position: relative;
 
             &:hover {

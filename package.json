@@ -9,7 +9,9 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "panelsnap": "^1.3.0",
     "vue": "^2.6.11",
+    "vue-observe-visibility": "^1.0.0",
     "vue-page-transition": "^0.2.2",
     "vue-router": "^3.5.3"
   },
