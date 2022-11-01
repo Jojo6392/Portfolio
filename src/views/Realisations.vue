@@ -29,19 +29,20 @@
         <div 
             class="project page"
             v-for="(item, indexItem) in realisations"
+            :key="indexItem"
             v-observe-visibility="{
                 callback: (isVisible, entry) => visibilityChanged(isVisible, entry, indexItem),
                 once: true
             }"
-            :key="indexItem"
+            v-scrollanimation-mobile
         >
             <div class="card"
                 @click="toggleContent($event.target)"
             >
                 <div class="card__img">
                     <div
-                        v-for="(image, index) in item.images"
-                        :key="index"
+                        v-for="(image, indexImage) in item.images"
+                        :key="indexImage"
                         class="carrousel"
                     >
                         <div 
@@ -319,6 +320,9 @@ export default {
          * @param {Number} indexItem
          */
         autoCarrousel(items, indexItem) {
+            // stop interval
+            clearInterval(this.realisations[indexItem].interval)
+
             const index = items.map(e => e.isActive).indexOf(true)
             // si on arrive à la fin du tableau, recommencez au début
             if(index == items.length - 1) this.changeActive(items, 0, indexItem)
@@ -331,9 +335,7 @@ export default {
          * @param {Number} indexItem
          */
         changeActive(items, indexImage, indexItem) {
-            // stop interval
-            clearInterval(this.realisations[indexItem].interval)
-
+            
             // récupérer le dernier actif pour le mettre à false
             const previousIndex = items.map(e => e.isActive).indexOf(true);
             items[previousIndex].isActive = false
@@ -587,6 +589,24 @@ $third_color: #C9CAD9;
 .offHover {
     transform: translateY(85%);
     transition: transform 500ms;
+}
+
+.beforeEnter {
+    opacity: 0;
+    transition: all 1s ease-out;
+}
+
+.beforeEnter:nth-child(even) {
+    transform: translateX(-100%);
+}
+
+.beforeEnter:nth-child(odd) {
+    transform: translateX(100%);
+}
+
+.enter {
+    opacity: 1;
+    transform: translateX(0%) !important;
 }
 
 @keyframes bounceIn {

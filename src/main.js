@@ -3,6 +3,9 @@ import App from './App.vue'
 import router from "./router"
 import "./assets/main.scss"
 
+import scrollAnimationOnMobile from './directives/scrollAnimationOnMobile'
+Vue.directive('scrollanimation-mobile', scrollAnimationOnMobile)
+
 import VuePageTransition from 'vue-page-transition'
 Vue.use(VuePageTransition)
 
