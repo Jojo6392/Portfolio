@@ -409,4 +409,16 @@ span.menu__title {
         margin-right: 0px;
     }
 }
+
+@media (max-width: 500px) {
+    .menu {
+        width: inherit;
+
+        &__item {
+            &__content {
+                margin: 0 20px 10px 20px;
+            }
+        }
+    }
+}
 </style>
