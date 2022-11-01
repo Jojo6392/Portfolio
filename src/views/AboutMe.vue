@@ -1,11 +1,11 @@
 <template>
     <div class="wrapper">
         <div class="title">
-            <div class="title__text">About me</div>
+            <div class="title__text">A propos de moi</div>
             <img class="title__img" src="../assets/global/cursor.svg" alt="">
         </div>
         <div class="img">
-            <img class="profile_picture" src="../assets/about/profile_picture.jpg" alt="profil picture" />
+            <div class="img__profile"></div>
             <div class="img__color"></div>
         </div>
 
@@ -41,11 +41,11 @@
             </div>
             
         </div>
-        <div class="interest">
-            <div class="interest__title">Additional information</div>
+        <div class="interest" v-scrollanimation-mobile>
+            <div class="interest__title">Informations additionnelles</div>
             <div class="interest__item dino">
                 <img class="interest__logo" src="../assets/about/interest/dino.svg" alt="dino logo">
-                <span class="interest__text">Passionate about Prehistory</span>
+                <span class="interest__text">Passioné par la préhistoire</span>
             </div>
 
             <div class="interest__item animals">
@@ -55,12 +55,12 @@
 
             <div class="interest__item anime">
                 <img class="interest__logo" src="../assets/about/interest/bookshelf.svg" alt="anime logo">
-                <span class="interest__text">Interest in Anime / Manga</span>
+                <span class="interest__text">Grand intérêt pour les animes/mangas</span>
             </div>
 
             <div class="interest__item game">
                 <img class="interest__logo" src="../assets/about/interest/microsoft-xbox-controller.svg" alt="game logo">
-                <span class="interest__text">Regular player on many games</span>
+                <span class="interest__text">Joueur régulier de multiples jeux vidéo</span>
             </div>
         </div>
     </div>
@@ -159,6 +159,34 @@ $color: #2D2B36;
     letter-spacing: 3px;
 }
 
+.img {
+    grid-area: img;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    &__profile, &__color {
+        height: 400px;
+        width: 400px;
+        position: absolute;
+        border-radius: 20%;
+    }
+
+    &__profile {
+        background-image: url("../assets/about/profile_picture.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        box-shadow: 10px 12px rgba(128,91,104,.35);
+    }
+
+    &__color {
+        border: 3px solid $second_color;
+        animation: filterColor 3s ease-in infinite;
+        animation-direction: alternate-reverse;
+    }
+}
+
 @media (max-width: 1820px) {
     .about__content {
         font-size: 22px;
@@ -186,30 +214,6 @@ $color: #2D2B36;
         height: 100px;
         font-size: 144px;
         width: 50vw;
-    }
-
-    .img {
-        grid-area: img;
-        height: 400px;
-        display: flex;
-        justify-content: center;
-        position: relative;
-
-        &__color {
-            height: 400px;
-            width: 400px;
-            position: absolute;
-            border-radius: 20%;
-            animation: filterColor 3s ease-in infinite;
-            animation-direction: alternate-reverse;
-        }
-    }
-
-    .profile_picture {
-        border-radius: 20%;
-        border: 3px solid $second_color;
-        box-shadow: 10px 12px rgba(128,91,104,.35);
-        width: 400px;
     }
 
     .about {
@@ -254,6 +258,15 @@ $color: #2D2B36;
     }
 }
 
+@media (max-width: 1200px) {
+    .img {
+        &__profile, &__color {
+            width: 350px;
+            height: 350px;
+        }
+    }
+}
+
 @media (max-width: 900px) {
     .wrapper {
         display: flex;
@@ -279,14 +292,60 @@ $color: #2D2B36;
         margin-top: 0px;
     }
 
-    .profile_picture {
-        width: 50%;
-        border-radius: 20%;
-    }
-
     .about, .interest {
         margin-top: 1em;
         font-size: 32px;
+    }
+}
+
+@media (max-width: 500px) {
+    .wrapper {
+        overflow: hidden;
+    }
+
+    .title {
+        transform: translateX(10px);
+    }
+
+    .img, .about {
+        animation: fadeInDown 1s forwards;
+    }
+
+    .img {
+        grid-area: img;
+        height: 270px;
+        position: relative;
+        margin-bottom: 5vh;
+
+        &__profile, &__color {
+            width: 275px;
+            height: 275px;
+        }
+    }
+
+    .interest {
+        font-size: 16px;
+        border-radius: 0% 0% 50% 50% / 0% 0% 5% 5% ;
+        box-shadow: 10px 10px rgba(128,91,104,.35);
+
+        &__title {
+            font-size: 40px;
+        }
+        
+        & img {
+            width: 32px;
+        }
+    }
+
+    .beforeEnter {
+        opacity: 0;
+        transform: translateY(50%);
+        transition: all 750ms ease-out;
+    }
+
+    .enter {
+        opacity: 1;
+        transform: translateY(0%);
     }
 }
 
@@ -299,5 +358,16 @@ $color: #2D2B36;
         background-color: rgba(237, 191, 183, 0.35);
     }
     
+}
+
+@keyframes fadeInDown {
+    0% {
+        transform: translateY(50%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
 }
 </style>
