@@ -1,5 +1,6 @@
 <template>
     <div class="home__content">
+        <img class="dino_walk" src="../assets/global/dino_walk.gif" alt="gif dino walk">
         <div id="home">
             <div class="home__header">
                 <div class="text">
@@ -10,7 +11,6 @@
                         Joris
                     </div>
                     <div class="text__metier">
-                        
                         Web Developer
                         <img class="text__metier__img" src="../assets/header/spider-web.svg" alt="">
                     </div>
@@ -136,6 +136,14 @@ a {
     text-decoration: inherit;
 }
 
+.dino_walk {
+    position: absolute;
+    transform: rotate(270deg);
+    right: 10%;
+    bottom: 0%;
+    width: 20vw;
+}
+
 #home {
     width: 100vw;
     display: flex;
@@ -210,7 +218,7 @@ a {
         font-family: 'Jurassic Park';
 
         &__content {
-            margin: 0 40px 10px 40px;
+            margin: 0 20px 10px 20px;
             position: relative;
 
             &:hover {
@@ -346,6 +354,12 @@ span.menu__title {
 
 }
 
+@media (max-width: 1200px) and (min-width: 1100px) {
+    .dino_walk {
+        bottom: -40%;
+    }
+}
+
 @media (max-width: 900px) {
 
     .home__content {
@@ -413,12 +427,6 @@ span.menu__title {
 @media (max-width: 500px) {
     .menu {
         width: inherit;
-
-        &__item {
-            &__content {
-                margin: 0 20px 10px 20px;
-            }
-        }
     }
 }
 </style>
