@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from "./router"
 import "./assets/main.scss"
+import 'animate.css';
 
 import scrollAnimationOnMobile from './directives/scrollAnimationOnMobile'
 Vue.directive('scrollanimation-mobile', scrollAnimationOnMobile)

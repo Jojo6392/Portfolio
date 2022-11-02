@@ -4,12 +4,12 @@
             <div class="title__text">A propos de moi</div>
             <img class="title__img" src="../assets/global/cursor.svg" alt="">
         </div>
-        <div class="img">
+        <div class="img animate__animated animate__zoomIn">
             <div class="img__profile"></div>
             <div class="img__color"></div>
         </div>
 
-        <div class="about">
+        <div class="about animate__animated animate__jackInTheBox">
             <div class="about__ombre about__ombre1"></div>
             <div class="about__ombre about__ombre2"></div>
             <div class="about__content">
@@ -41,7 +41,16 @@
             </div>
             
         </div>
-        <div class="interest" v-scrollanimation-mobile>
+        <div class="interest
+                animate__animated
+                animate__backInUp
+                animate__fast
+            " 
+            v-scrollanimation-mobile
+            @mouseenter="isHover = true"
+            @mouseleave="isHover = false"
+            :class="{isHover: isHover}"
+        >
             <div class="interest__title">Informations additionnelles</div>
             <div class="interest__item dino">
                 <img class="interest__logo" src="../assets/about/interest/dino.svg" alt="dino logo">
@@ -68,7 +77,11 @@
 
 <script>
 export default {
-
+    data() {
+        return {
+            isHover: false,
+        }
+    }
 }
 </script>
 
@@ -88,15 +101,16 @@ $color: #2D2B36;
     justify-content: center;
 
     &__img {
-        transform: translate(-30px, 30px) rotate(60deg);
         z-index: 1;
         width: 10%;
         filter: invert(38%) sepia(6%) saturate(1800%) hue-rotate(288deg) brightness(98%) contrast(92%);
+        animation: fadeInLeftForImageTitle 1s forwards;
     }
 
     &__text {
         z-index: 2;
         width: fit-content;
+        animation: fadeInLeft 1s forwards;
     }
 }
 
@@ -142,6 +156,11 @@ $color: #2D2B36;
         width: auto;
         margin-right: 10px;
     }
+}
+
+.isHover {
+    animation: bounce 350ms ease infinite alternate;
+    animation-duration: 350ms !important;
 }
 
 .about {
@@ -370,4 +389,36 @@ $color: #2D2B36;
         opacity: 1;
     }
 }
+
+@keyframes fadeInLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInLeftForImageTitle {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-20px, 30px) rotate(60deg);
+        opacity: 1;
+    }
+}
+
+@keyframes bounce{
+    from {
+        transform: translateY(0)
+    }
+    to {
+        transform: translateY(-15px)
+    }
+}
+
 </style>
