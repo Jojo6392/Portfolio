@@ -107,7 +107,7 @@ export default {
                     break;
 
                 case 1:
-                    this.$router.push({name: "Services"})
+                    this.$router.push({name: "Competences"})
                     break;
 
                 case 2:

@@ -22,7 +22,7 @@
                 </ul>
                 <img
                     class="gif"
-                    src="../assets/projects/ok_dino.webp" alt="ok gif"
+                    src="../assets/views/projects/ok_dino.webp" alt="ok gif"
                 >
             </div>
         </div>
@@ -91,7 +91,7 @@
                         <a :href="item.links[0]" target="_blank">
                             <img
                                 class="link"
-                                src="../assets/projects/redirection.svg" 
+                                src="../assets/views/projects/redirection.svg" 
                                 alt="external link">
                         </a>
                         <a :href="item.links[1]" target="_blank">
@@ -135,11 +135,11 @@ export default {
                     links: ["#", "https://github.com/Jojo6392/Portfolio"],
                     images: [
                         {
-                            lien: require('../assets/projects/portfolio/image1.png'),
+                            lien: require('../assets/views/projects/portfolio/image1.png'),
                             isActive: true,
                         },
                         {
-                            lien: require('../assets/projects/portfolio/image2.png'),
+                            lien: require('../assets/views/projects/portfolio/image2.png'),
                             isActive: false,
                         },
                         
@@ -154,27 +154,27 @@ export default {
                     links: ["https://fyc.killianm.fr/", "https://github.com/Ki2lian/FYC/tree/killian"],
                     images: [
                         {
-                            lien: require('../assets/projects/fyc/image1.png'),
+                            lien: require('../assets/views/projects/fyc/image1.png'),
                             isActive: true,
                         },
                         {
-                            lien: require('../assets/projects/fyc/image2.png'),
+                            lien: require('../assets/views/projects/fyc/image2.png'),
                             isActive: false,
                         },
                         {
-                            lien: require('../assets/projects/fyc/image3.png'),
+                            lien: require('../assets/views/projects/fyc/image3.png'),
                             isActive: false,
                         },
                         {
-                            lien: require('../assets/projects/fyc/image4.png'),
+                            lien: require('../assets/views/projects/fyc/image4.png'),
                             isActive: false,
                         },
                         {
-                            lien: require('../assets/projects/fyc/image5.png'),
+                            lien: require('../assets/views/projects/fyc/image5.png'),
                             isActive: false,
                         },
                         {
-                            lien: require('../assets/projects/fyc/image6.png'),
+                            lien: require('../assets/views/projects/fyc/image6.png'),
                             isActive: false,
                         },
                         
@@ -189,31 +189,31 @@ export default {
                     links: ["", "https://github.com/Jojo6392/Restaurant---Symfony"],
                     images: [
                         {
-                            lien: require('../assets/projects/resto/image1.png'),
+                            lien: require('../assets/views/projects/resto/image1.png'),
                             isActive: true,
                         },
                         {
-                            lien: require('../assets/projects/resto/image2.png'),
+                            lien: require('../assets/views/projects/resto/image2.png'),
                             isActive: false,
                         },
                         {
-                            lien: require('../assets/projects/resto/image3.png'),
+                            lien: require('../assets/views/projects/resto/image3.png'),
                             isActive: false,
                         },
                         {
-                            lien: require('../assets/projects/resto/image4.png'),
+                            lien: require('../assets/views/projects/resto/image4.png'),
                             isActive: false,
                         },
                         {
-                            lien: require('../assets/projects/resto/image5.png'),
+                            lien: require('../assets/views/projects/resto/image5.png'),
                             isActive: false,
                         },
                         {
-                            lien: require('../assets/projects/resto/image6.png'),
+                            lien: require('../assets/views/projects/resto/image6.png'),
                             isActive: false,
                         },
                         {
-                            lien: require('../assets/projects/resto/image7.png'),
+                            lien: require('../assets/views/projects/resto/image7.png'),
                             isActive: false,
                         },
                         
@@ -228,11 +228,11 @@ export default {
                     links: ["", "https://github.com/Jojo6392/DinosauresList-iOS"],
                     images: [
                         {
-                            lien: require('../assets/projects/dino-iOS/image1.png'),
+                            lien: require('../assets/views/projects/dino-iOS/image1.png'),
                             isActive: true,
                         },
                         {
-                            lien: require('../assets/projects/dino-iOS/image2.png'),
+                            lien: require('../assets/views/projects/dino-iOS/image2.png'),
                             isActive: false,
                         },
                     ],
@@ -246,23 +246,23 @@ export default {
                     links: ["", "https://github.com/Jojo6392/Aeroports-API-Maps"],
                     images: [
                         {
-                            lien: require('../assets/projects/aeroports/image1.png'),
+                            lien: require('../assets/views/projects/aeroports/image1.png'),
                             isActive: true,
                         },
                         {
-                            lien: require('../assets/projects/aeroports/image2.png'),
+                            lien: require('../assets/views/projects/aeroports/image2.png'),
                             isActive: false,
                         },
                         {
-                            lien: require('../assets/projects/aeroports/image3.png'),
+                            lien: require('../assets/views/projects/aeroports/image3.png'),
                             isActive: false,
                         },
                         {
-                            lien: require('../assets/projects/aeroports/image4.png'),
+                            lien: require('../assets/views/projects/aeroports/image4.png'),
                             isActive: false,
                         },
                         {
-                            lien: require('../assets/projects/aeroports/image5.png'),
+                            lien: require('../assets/views/projects/aeroports/image5.png'),
                             isActive: false,
                         },
                     ],

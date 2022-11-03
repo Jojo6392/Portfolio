@@ -53,22 +53,22 @@
         >
             <div class="interest__title">Informations additionnelles</div>
             <div class="interest__item dino">
-                <img class="interest__logo" src="../assets/about/interest/dino.svg" alt="dino logo">
+                <img class="interest__logo" src="../assets/views/about/interest/dino.svg" alt="dino logo">
                 <span class="interest__text">Passioné par la préhistoire</span>
             </div>
 
             <div class="interest__item animals">
-                <img class="interest__logo" src="../assets/about/interest/cat.svg" alt="cat logo">
+                <img class="interest__logo" src="../assets/views/about/interest/cat.svg" alt="cat logo">
                 <span class="interest__text">Wildlife Lover</span>
             </div>
 
             <div class="interest__item anime">
-                <img class="interest__logo" src="../assets/about/interest/bookshelf.svg" alt="anime logo">
+                <img class="interest__logo" src="../assets/views/about/interest/bookshelf.svg" alt="anime logo">
                 <span class="interest__text">Grand intérêt pour les animes/mangas</span>
             </div>
 
             <div class="interest__item game">
-                <img class="interest__logo" src="../assets/about/interest/microsoft-xbox-controller.svg" alt="game logo">
+                <img class="interest__logo" src="../assets/views/about/interest/microsoft-xbox-controller.svg" alt="game logo">
                 <span class="interest__text">Joueur régulier de multiples jeux vidéo</span>
             </div>
         </div>
@@ -193,7 +193,7 @@ $color: #2D2B36;
     }
 
     &__profile {
-        background-image: url("../assets/about/profile_picture.jpg");
+        background-image: url("../assets/views/about/profile_picture.jpg");
         background-repeat: no-repeat;
         background-size: cover;
         box-shadow: 10px 12px rgba(128,91,104,.35);

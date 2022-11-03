@@ -44,7 +44,7 @@ export default {
         },
 
         cursorPoint() {
-            return `transform: translateX(${this.xChild - 3}px) translateY(${this.yChild - 3}px) translateZ(0) translate3d(0, 0, 0);`
+            return `transform: translateX(${this.xChild - 10}px) translateY(${this.yChild - 10}px) translateZ(0) translate3d(0, 0, 0);`
         }
     },
 
@@ -74,8 +74,8 @@ export default {
             this.yChild = e.clientY;
 
             setTimeout(() => {
-                this.xParent = e.clientX - 15;
-                this.yParent = e.clientY - 15;
+                this.xParent = e.clientX - 22;
+                this.yParent = e.clientY - 23;
             }, 100);
         }
     },

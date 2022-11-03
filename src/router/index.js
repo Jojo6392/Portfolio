@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 
 import Home from "../views/Home.vue"
 import AboutMe from "../views/AboutMe.vue"
-import Services from "../views/Services.vue"
+import Competences from "../views/Competences.vue"
 import Projects from "../views/Projects.vue"
 import Realisations from "../views/Realisations.vue"
 import Projets from "../views/Projects.vue"
@@ -24,9 +24,9 @@ const routes = [
         component: AboutMe,
     },
     {
-        path: "/services",
-        name: "Services",
-        component: Services,
+        path: "/competences",
+        name: "Competences",
+        component: Competences,
     },
     {
         path: "/projects",
