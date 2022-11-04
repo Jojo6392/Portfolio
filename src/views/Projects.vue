@@ -254,7 +254,6 @@ $third_color: #C9CAD9;
 .projects {
     padding: 2.5em 1em 0 1em;
     font-size: 32px;
-    font-family: 'Acme';
 
     &__title {
         display: flex;

@@ -12,7 +12,7 @@
                     </div>
                     <div class="text__metier">
                         Web Developer
-                        <img class="text__metier__img" src="../assets/header/spider-web.svg" alt="">
+                        <img class="text__metier__img" src="../assets/header/dinosaur-skull.png" alt="">
                     </div>
                 </div>
                 <div class="social-links">
@@ -169,7 +169,7 @@ a {
 
 .text {
     font-size: 44px;
-    font-family: 'Acme';
+    font-family: 'Playfair Display';
     color: white;
     width: 100%;
     padding-left: 10%;
@@ -191,9 +191,9 @@ a {
         color: rgb(165, 50, 50);
 
         &__img {
-            filter: invert(17%) sepia(38%) saturate(4479%) hue-rotate(342deg) brightness(109%) contrast(80%);
             width: 42px;
             margin-left: 10px;
+            margin-top: 5px;
         }
     }
 }

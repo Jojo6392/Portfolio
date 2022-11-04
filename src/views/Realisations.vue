@@ -13,7 +13,7 @@
                         class="arceau"
                     ></div>
                 </div>
-                <div class="title">Sur cette page vous trouverez les différentes réalisations que j'ai pu réalisé</div>
+                <div class="title">Sur cette page vous trouverez les differentes realisations que j'ai pu realise</div>
                 <ul>
                     <li>Faites défiler pour afficher chaque réalisation une par une.</li>
                     <li>Cliquez sur une réalisation pour afficher ses détails.</li>
@@ -394,7 +394,6 @@ $third_color: #C9CAD9;
 .projects {
     padding: 2.5em 1em 0 1em;
     font-size: 32px;
-    font-family: 'Acme';
     height: 90vh;
 
     &__title {
@@ -458,11 +457,10 @@ $third_color: #C9CAD9;
 
         & .title {
             text-align: center;
-            font-family: 'Acme';
             font-style: italic;
             font-size: 48px;
             width: 90%;
-            font-family: 'Back Out';
+            font-family: 'ExplosionBook';
         }
 
         & li {

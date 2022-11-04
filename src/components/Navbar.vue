@@ -23,8 +23,18 @@
         </div>
         <div class="menu__items">
             <div class="icons_menu">
-                <img class="icons_menu__home icons_menu__colors" src="../assets/navbar/home-circle-outline.svg" alt="home" @click="goHome">
-                <img class="icons_menu__return icons_menu__colors" src="../assets/navbar/arrow-left-bold-circle-outline.svg" @click="goBack" alt="back arrow">
+                <div class="icons_menu__btn"
+                    :class="{ onHover: btnHoverHome, offHover: !btnHoverHome }"
+                    @mouseenter="btnHoverHome = true"
+                    @mouseleave="btnHoverHome = false"
+                    @click="goHome"
+                >HOME</div>
+                <div class="icons_menu__btn"
+                    :class="{ onHover: btnHoverBack, offHover: !btnHoverBack }"
+                    @mouseenter="btnHoverBack = true"
+                    @mouseleave="btnHoverBack = false"
+                    @click="goBack"
+                >BACK</div>
             </div>
             <button class="toggle-menu">
                 <span></span>
@@ -38,6 +48,8 @@ export default {
 
     data() {
         return {
+            btnHoverHome: false,
+            btnHoverBack: false,
         }
     },
 
@@ -171,22 +183,27 @@ $hamburger-zindex: 10;
 
 .icons_menu {
     flex: 50%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
 
-    &__home {
-        width: 48px;
-        margin: 1em;
-        margin-left: 2em;
-    }
+    margin: 1em;
+    margin-left: 2em;
 
-    &__return {
-        width: 48px;
-        margin: 1em;
-        margin-left: 0;
-    }
+    &__btn {
+        font-family: 'KG Compassion';
+        color: white;
+        background-color: #212028;
+        box-shadow: 5px 5px 0px 2px rgba(0,0,0,0.10);
+        font-size: 20px;
+        padding: 10px 20px;
 
-    &__colors {
-        &:hover {
-            filter: invert(43%) sepia(79%) saturate(322%) hue-rotate(37deg) brightness(95%) contrast(85%);
+        &.onHover {
+            animation: buttonAnimationIn 250ms forwards;
+        }
+
+        &.offHover {
+            animation: buttonAnimationOut 250ms forwards;
         }
     }
 }
@@ -359,10 +376,44 @@ $hamburger-zindex: 10;
     to { opacity: 1 }
 }
 
-// Mobile screen
+@keyframes buttonAnimationIn {
+    from {
+        transform: translate(0px, 0px);
+        box-shadow: 5px 5px 0px 2px rgba(0,0,0,0.10);
+    }
+    to {
+        transform: translate(5px, 5px);
+        box-shadow: none;
+    }
+}
+
+@keyframes buttonAnimationOut {
+    from {
+        transform: translate(5px, 5px);
+        box-shadow: none;
+    }
+    to {
+        transform: translate(0px, 0px);
+        box-shadow: 5px 5px 0px 2px rgba(0,0,0,0.10);
+    }
+}
+
+// Petite resolution
 @media (max-width: 900px) {
     .hyperlien {
         width: 100vw;
+    }
+}
+
+// Mobile screen
+@media (max-width: 500px) {
+    .icons_menu {
+        gap: 10px;
+
+        &__btn {
+            font-size: 12px;
+            padding: 7.5px 15px;
+        }
     }
 }
 </style>
