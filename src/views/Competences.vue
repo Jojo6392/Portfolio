@@ -69,6 +69,9 @@
                 </div>
             </div>
         </div>
+        <div class="tips">
+            Vous pouvez utiliser les boutons sur le côté droit de votre écran pour voir les différentes compétences triées par catégorie.
+        </div>
     </div>
 </template>
 
@@ -528,6 +531,10 @@ $white: rgb(229, 229, 229);
     }
 }
 
+.tips {
+    display: none;
+}
+
 // ANIMATION
 
 @keyframes zoomIn {
@@ -571,6 +578,86 @@ $white: rgb(229, 229, 229);
     to {
         opacity: 0;
         transform: translateX(-100%);
+    }
+}
+
+// MOBILE RESOLUTION
+@media (max-width: 500px) {
+    .competences {
+        height: 1000px;
+    }
+    .first {
+        margin-top: 75px;
+
+        .title {
+            font-size: 32px;
+        }
+
+        .text {
+            font-size: 12px;
+            margin-bottom: 20px;
+        }
+    }
+
+    .second {
+        height: 100%;
+
+        .skills {
+            .skill {
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 20px;
+
+                .title {
+                    width: 100%;
+                    justify-content: center;
+
+                    div {
+                        font-size: 26px;
+                        writing-mode: horizontal-tb;
+                        transform: rotate(0deg);
+                        border-left: none;
+                        border-bottom: 5px solid $light_color
+                    }
+                }
+
+                .items {
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    align-content: baseline;
+                    height: 100%;
+
+                    .item {
+                        width: 35%;
+                        height: 15%;
+
+                        .img {
+                            img, img.resizeImg {
+                                width: 50%;
+                            }
+                        }
+
+                        .name {
+                            font-size: 12px;
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .tips {
+        display: block;
+        width: 80%;
+        margin-top: 20px;
+
+        font-family: 'Poppins Light';
+        text-align: center;
+        font-size: 8px;
+        font-style: italic;
+        color: $white;
     }
 }
 </style>

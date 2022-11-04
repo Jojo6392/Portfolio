@@ -29,7 +29,7 @@
                     </div>
                     <div class="project__links">
                         <a :href="item.links[0]" target="_blank">
-                            <img src="../assets/projects/redirection.svg" alt="external link">
+                            <img src="../assets/views/projects/redirection.svg" alt="external link">
                         </a>
                         <a :href="item.links[1]" target="_blank">
                             <img src="../assets/header/github.svg" alt="github logo">
@@ -39,9 +39,9 @@
             </div>
         </div>
         <div class="carousel_navigation">
-            <img class="carousel_navigation__chevron" src="../assets/projects/chevron-left.svg" @click="step(false)" alt="left arrow">
+            <img class="carousel_navigation__chevron" src="../assets/views/projects/chevron-left.svg" @click="step(false)" alt="left arrow">
             <div class="carousel_navigation__number">{{ index + 1 }}  / {{ data.length }}</div>
-            <img class="carousel_navigation__chevron" src="../assets/projects/chevron-right.svg" @click="step(true)" alt="right arrow">
+            <img class="carousel_navigation__chevron" src="../assets/views/projects/chevron-right.svg" @click="step(true)" alt="right arrow">
         </div>
     </div>
 </template>
@@ -60,11 +60,11 @@ export default {
                     links: ["#", "https://github.com/Jojo6392/Portfolio"],
                     images: [
                         {
-                            lien: require('../assets/projects/portfolio/image1.png'),
+                            lien: require('../assets/views/projects/portfolio/image1.png'),
                             isActive: true,
                         },
                         {
-                            lien: require('../assets/projects/portfolio/image2.png'),
+                            lien: require('../assets/views/projects/portfolio/image2.png'),
                             isActive: false,
                         },
                         
@@ -79,27 +79,27 @@ export default {
                     links: ["https://fyc.killianm.fr/", "https://github.com/Ki2lian/FYC/tree/killian"],
                     images: [
                         {
-                            lien: require('../assets/projects/fyc/image1.png'),
+                            lien: require('../assets/views/projects/fyc/image1.png'),
                             isActive: true,
                         },
                         {
-                            lien: require('../assets/projects/fyc/image2.png'),
+                            lien: require('../assets/views/projects/fyc/image2.png'),
                             isActive: false,
                         },
                         {
-                            lien: require('../assets/projects/fyc/image3.png'),
+                            lien: require('../assets/views/projects/fyc/image3.png'),
                             isActive: false,
                         },
                         {
-                            lien: require('../assets/projects/fyc/image4.png'),
+                            lien: require('../assets/views/projects/fyc/image4.png'),
                             isActive: false,
                         },
                         {
-                            lien: require('../assets/projects/fyc/image5.png'),
+                            lien: require('../assets/views/projects/fyc/image5.png'),
                             isActive: false,
                         },
                         {
-                            lien: require('../assets/projects/fyc/image6.png'),
+                            lien: require('../assets/views/projects/fyc/image6.png'),
                             isActive: false,
                         },
                         
@@ -114,31 +114,31 @@ export default {
                     links: ["", "https://github.com/Jojo6392/Restaurant---Symfony"],
                     images: [
                         {
-                            lien: require('../assets/projects/resto/image1.png'),
+                            lien: require('../assets/views/projects/resto/image1.png'),
                             isActive: true,
                         },
                         {
-                            lien: require('../assets/projects/resto/image2.png'),
+                            lien: require('../assets/views/projects/resto/image2.png'),
                             isActive: false,
                         },
                         {
-                            lien: require('../assets/projects/resto/image3.png'),
+                            lien: require('../assets/views/projects/resto/image3.png'),
                             isActive: false,
                         },
                         {
-                            lien: require('../assets/projects/resto/image4.png'),
+                            lien: require('../assets/views/projects/resto/image4.png'),
                             isActive: false,
                         },
                         {
-                            lien: require('../assets/projects/resto/image5.png'),
+                            lien: require('../assets/views/projects/resto/image5.png'),
                             isActive: false,
                         },
                         {
-                            lien: require('../assets/projects/resto/image6.png'),
+                            lien: require('../assets/views/projects/resto/image6.png'),
                             isActive: false,
                         },
                         {
-                            lien: require('../assets/projects/resto/image7.png'),
+                            lien: require('../assets/views/projects/resto/image7.png'),
                             isActive: false,
                         },
                         
@@ -153,11 +153,11 @@ export default {
                     links: ["", "https://github.com/Jojo6392/DinosauresList-iOS"],
                     images: [
                         {
-                            lien: require('../assets/projects/dino-iOS/image1.png'),
+                            lien: require('../assets/views/projects/dino-iOS/image1.png'),
                             isActive: true,
                         },
                         {
-                            lien: require('../assets/projects/dino-iOS/image2.png'),
+                            lien: require('../assets/views/projects/dino-iOS/image2.png'),
                             isActive: false,
                         },
                     ],
@@ -171,23 +171,23 @@ export default {
                     links: ["", "https://github.com/Jojo6392/Aeroports-API-Maps"],
                     images: [
                         {
-                            lien: require('../assets/projects/aeroports/image1.png'),
+                            lien: require('../assets/views/projects/aeroports/image1.png'),
                             isActive: true,
                         },
                         {
-                            lien: require('../assets/projects/aeroports/image2.png'),
+                            lien: require('../assets/views/projects/aeroports/image2.png'),
                             isActive: false,
                         },
                         {
-                            lien: require('../assets/projects/aeroports/image3.png'),
+                            lien: require('../assets/views/projects/aeroports/image3.png'),
                             isActive: false,
                         },
                         {
-                            lien: require('../assets/projects/aeroports/image4.png'),
+                            lien: require('../assets/views/projects/aeroports/image4.png'),
                             isActive: false,
                         },
                         {
-                            lien: require('../assets/projects/aeroports/image5.png'),
+                            lien: require('../assets/views/projects/aeroports/image5.png'),
                             isActive: false,
                         },
                     ],
