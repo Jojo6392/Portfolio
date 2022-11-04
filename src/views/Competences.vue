@@ -580,7 +580,26 @@ $white: rgb(229, 229, 229);
         transform: translateX(-100%);
     }
 }
+// PETITE RESOLUTION
+@media (max-width: 900px) {
+    .first {
+        margin-top: 50px;
+    }
 
+    .second {
+        .skills {
+            .skill {
+                .items {
+                    align-content: baseline;
+                    .item {
+                        width: 35%;
+                    }
+                }
+            }
+        }
+    }
+    
+}
 // MOBILE RESOLUTION
 @media (max-width: 500px) {
     .competences {
