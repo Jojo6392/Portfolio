@@ -1,6 +1,11 @@
 <template>
     <div class="competences">
-        <div class="content first">
+        <div class="content
+            first
+            animate__fast
+            animate__animated
+            animate__slideInDown"
+        >
             <div class="title">Ce que je peux faire</div>
             <div class="text">
                 Actuellement développeur web junior, j'essaye de me spécialiser dans le front-end mais j'ai des connaissances qui me permettent de m'orienter full-stack.
@@ -358,7 +363,7 @@ $white: rgb(229, 229, 229);
     flex-direction: column;
 
     & .title {
-        font-family: 'Acme';
+        font-family: 'ExplosionBook';
         font-size: 48px;
         color: $main_color;
         padding-bottom: 2vh;
@@ -402,9 +407,11 @@ $white: rgb(229, 229, 229);
                 width: 10%;
                 display: flex;
                 align-items: center;
+                opacity: 0;
 
                 &__active {
                     animation: fadeInLeft 500ms forwards;
+                    animation-delay: 500ms;
                 }
 
                 &__unactive {
@@ -415,7 +422,7 @@ $white: rgb(229, 229, 229);
                     width: fit-content;
                     height: fit-content;
 
-                    font-family: 'Acme';
+                    font-family: 'ExplosionBook';
                     color: $white;
                     font-size: 42px;
                     border-left: 5px solid $light_color;
@@ -435,9 +442,11 @@ $white: rgb(229, 229, 229);
                 align-items: center;
                 justify-content: center;
                 gap: $gap;
+                opacity: 0;
 
                 &__active {
                     animation: zoomIn 500ms forwards;
+                    animation-delay: 1s;
                 }
 
                 &__unactive {
@@ -507,6 +516,10 @@ $white: rgb(229, 229, 229);
         flex-direction: column;
         align-items: flex-end;
         gap: 25px;
+
+        opacity: 0;
+        animation: fadeInRight 500ms forwards;
+        animation-delay: 1.5s;
 
         & .index {
             $width: 7.5px;
@@ -580,6 +593,18 @@ $white: rgb(229, 229, 229);
         transform: translateX(-100%);
     }
 }
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translate(200%, -50%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-5%, -50%);
+    }
+}
+
 // PETITE RESOLUTION
 @media (max-width: 900px) {
     .first {
