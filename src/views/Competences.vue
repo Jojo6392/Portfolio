@@ -41,11 +41,10 @@
                                 <img 
                                     :src="item.img" 
                                     :alt="item.name"
-                                    :class="{
-                                        resizeImg: item.resizeImg,
-                                        onHover: item.onHover,
-                                        offHover: !item.onHover
-                                    }"
+                                    :class="[
+                                        (item.resizeImg === true ? 'resizeImg' : '' ),
+                                        (item.onHover === true ? 'onHover' : 'offHover'),
+                                    ]"
                                     @mouseenter="item.onHover = true"
                                     @mouseleave="item.onHover = false"
                                 >
@@ -483,7 +482,7 @@ $white: rgb(229, 229, 229);
 
                             &.onHover {
                                 transition: transform 400ms ease-in;
-                                transform: scale(1.15);
+                                transform: scale(1.10);
                             }
 
                             &.offHover {
@@ -499,6 +498,7 @@ $white: rgb(229, 229, 229);
 
                         font-family: 'Poppins SemiBold';
                         text-transform: uppercase;
+                        text-align: center;
                         color: $white;
                     }
                 }
@@ -602,6 +602,16 @@ $white: rgb(229, 229, 229);
     to {
         opacity: 1;
         transform: translateX(-5%, -50%);
+    }
+}
+
+// GRANDE/MOYENNE RESOLUTION
+@media (max-width: 1540px) {
+    .first {
+        margin-top: 75px;
+        .text {
+            font-size: 16px;
+        }
     }
 }
 

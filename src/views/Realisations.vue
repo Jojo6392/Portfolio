@@ -487,7 +487,6 @@ $third_color: #C9CAD9;
 .card {
     width: 90%;
     height: 90%;
-    border-radius: 20px;
     box-shadow: 20px 20px 5px 0px rgb(0 0 0 / 16%);
     overflow: hidden;
     position: relative;

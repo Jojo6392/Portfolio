@@ -146,7 +146,7 @@ export default {
                     break;
 
                 case 4:
-                    this.$router.push({name: 'Experiences'})
+                    this.$router.push({name: 'Parcours'})
                     break;
 
                 default: break;

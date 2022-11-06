@@ -7,7 +7,7 @@ import Competences from "../views/Competences.vue"
 import Projects from "../views/Projects.vue"
 import Realisations from "../views/Realisations.vue"
 import Projets from "../views/Projects.vue"
-import Experiences from "../views/Experiences.vue"
+import Parcours from "../views/Parcours.vue"
 import Test from "../components/Test.vue"
 
 Vue.use(VueRouter)
@@ -44,9 +44,9 @@ const routes = [
         component: Projets,
     },
     {
-        path: "/experiences",
-        name: "Experiences",
-        component: Experiences,
+        path: "/parcours",
+        name: "Parcours",
+        component: Parcours,
     },
     {
         path: "/test",

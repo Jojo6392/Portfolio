@@ -8,7 +8,7 @@
                         Hi, I am
                     </div>
                     <div class="text__name">
-                        Joris
+                        Joris Margotteau
                     </div>
                     <div class="text__metier">
                         Web Developer
@@ -115,7 +115,7 @@ export default {
                     break;
 
                 case 3:
-                    this.$router.push({name: "Experiences"})
+                    this.$router.push({name: "Parcours"})
                     break;
 
                 default: break;
@@ -127,9 +127,9 @@ export default {
 
 <style lang="scss" scoped>
 $about_me: rgb(128, 91, 104);
-$services: rgb(4, 141, 116);
-$projects: rgb(109, 133, 54);
-$experiences: rgb(0, 112, 143);
+$competences: rgb(4, 141, 116);
+$realisations: rgb(109, 133, 54);
+$parcours: rgb(0, 112, 143);
 $background_image: rgb(27, 26, 35);
 
 a {
@@ -368,7 +368,6 @@ span.menu__title {
 
     .text {
         font-size: 32px;
-        font-family: 'Acme';
         color: white;
         width: 100%;
         text-align: center;
@@ -425,6 +424,11 @@ span.menu__title {
 }
 
 @media (max-width: 500px) {
+
+    .text__name {
+        font-size: 64px;
+    }
+
     .menu {
         width: inherit;
     }
