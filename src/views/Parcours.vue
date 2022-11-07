@@ -1,20 +1,31 @@
 <template>
     <div class="container">
-        <!-- TEST SECTION -->
-        <button class="test" @click="showExperiences = !showExperiences">SWITCH</button>
-        <!-- TITLE SECTION -->
-        <div v-if="showExperiences" class="experiences__title">
+        <!-- TITLES SECTION -->
+        <div v-show="showExperiences"
+            :class="['experiences__title', (showExperiences === true ? 'active' : '')]"
+        >
             <div class="tiret"></div>
             Expériences
         </div>
-        <div v-else class="formations__title">
+        <div v-show="!showExperiences" class="formations__title"
+            :class="['formations__title', (showExperiences === true ? '' : 'active')]"
+        >
             <div class="tiret"></div>
             Formations
         </div>
-        <div class="divider"></div>
+        <div :class="['divider', (showExperiences === true ? 'active' : 'active')]"></div>
+
+        <!-- SWITCH SECTION -->
+        <div class="switch">
+            <div :class="{ active: showExperiences }">Expériences</div>
+            <SwitchParcours @click.native="showExperiences = !showExperiences"/>
+            <div :class="{ active: !showExperiences }">Formations</div>
+        </div>
 
         <!-- EXPERIENCES SECTION -->
-        <div v-if="showExperiences" class="experiences">
+        <div :class="['experiences', (showExperiences === true ? 'active' : '')]"
+            v-show="showExperiences"
+        >
             <div class="experience card"
                 v-for="(experience, index) in experiences" :key="index"
             >
@@ -51,7 +62,9 @@
         </div>
 
         <!-- FORMATIONS SECTION -->
-        <div v-else class="formations">
+        <div :class="['formations', (showExperiences === true ? '' : 'active')]" 
+            v-show="!showExperiences"
+        >
             <div class="formation card"
                 v-for="(formation, index) in formations" :key="index"
             >
@@ -90,10 +103,12 @@
 </template>
 
 <script>
+import SwitchParcours from "../components/SwitchParcours.vue"
+
 export default {
     data() {
         return {
-            showExperiences: false,
+            showExperiences: true,
 
             experiences: [
                 {
@@ -156,6 +171,10 @@ export default {
             ],
         }
     },
+
+    components: {
+        SwitchParcours,
+    },
 }
 </script>
 
@@ -167,23 +186,50 @@ $extra_light_gray: rgb(76, 73, 95);
 $gray: rgb(50, 48, 62);
 $background: rgb(27, 26, 35);
 
-.test {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
+.switch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    margin: 0 auto;
+    transform: translateY(-75px);
+
+    font-family: 'KG Compassion';
+    color: $white;
+    font-size: 18px;
+    
+    div {
+        border-color: $main_color !important;
+    }
+
+    .active {
+        border-bottom: 1px solid;
+        transform: rotate(2deg);
+
+        transition: all 500ms ease-in;
+    }
 }
 
 .container {
     width: 100vw;
-    padding: 75px 50px;
+    padding: 60px 50px;
+    padding-bottom: 10px;
+    overflow-y: hidden;
 }
 
 .divider {
     width: calc(100% - 100px);
+    opacity: 0;
     height: 2px;
     margin-top: 20px;
     margin-bottom: 20px;
     background-color: $light_gray;
+
+    &.active {
+        animation: fadeInLeft 1s forwards;
+        animation-delay: 250ms;
+    }
 }
 
 .experiences, .formations {
@@ -193,6 +239,22 @@ $background: rgb(27, 26, 35);
     flex-wrap: wrap;
     align-items: center;
     gap: 25px;
+
+    &.active {
+        .card {
+            opacity: 0;
+            animation-name: fadeInBottom;
+            animation-fill-mode: forwards;
+
+            @for $i from 1 through 3 {
+                &:nth-child(#{$i}) {
+                    animation-duration: 1s;
+                    animation-delay: calc($i * 500ms);
+                }
+            }
+        }
+
+    }
 
     &__title {
         width: 100%;
@@ -209,6 +271,10 @@ $background: rgb(27, 26, 35);
             width: 40px;
             height: 5px;
             background-color: $main_color;
+        }
+
+        &.active {
+            animation: fadeInLeft 1s forwards;
         }
     }
 }
@@ -259,6 +325,7 @@ $background: rgb(27, 26, 35);
             background-position: center;
             background-size: contain;
             background-repeat: no-repeat;
+            box-shadow: 0px 0px 35px 10px rgba(0,0,0,0.6);
         }
     }
 
@@ -331,6 +398,28 @@ $background: rgb(27, 26, 35);
                 background-color: $light_gray;
             }
         }
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+
+@keyframes fadeInBottom {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0%);
     }
 }
 </style>
