@@ -93,6 +93,10 @@ export default {
 
     },
 
+    mounted () {
+        document.documentElement.scrollTop = document.body.scrollTop = 0;
+    },
+
     methods: {
         onHover: function(e) {
             const contentToDisplay = e.target.children[1]

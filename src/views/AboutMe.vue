@@ -81,7 +81,11 @@ export default {
         return {
             isHover: false,
         }
-    }
+    }, 
+
+    mounted () {
+        document.documentElement.scrollTop = document.body.scrollTop = 0;
+    },
 }
 </script>
 
