@@ -49,6 +49,18 @@ export default {
     },
 
     mounted() {
+
+        // Navbar
+        const navbar = document.getElementById("navbar");
+        const sticky = navbar.offsetTop;
+        window.onscroll = () => {
+            if(window.pageYOffset >= sticky)
+                this.needSticky = true
+            else
+                this.needSticky = false
+        };
+
+        // Curseur
         const clientWidth  = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 
         // Ne pas créer le curseur si la longueur de la page de l'utilisateur est inférieur à 900 pixels
@@ -63,15 +75,6 @@ export default {
         document.addEventListener('mouseenter', () => {
             this.hideCursor = false;
         });
-
-        const navbar = document.getElementById("navbar");
-        const sticky = navbar.offsetTop;
-        window.onscroll = () => {
-            if(window.pageYOffset >= sticky)
-                this.needSticky = true
-            else
-                this.needSticky = false
-        };
     },
 
     methods: {
