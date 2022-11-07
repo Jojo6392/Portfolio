@@ -49,6 +49,12 @@ export default {
     },
 
     mounted() {
+        const clientWidth  = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+
+        // Ne pas créer le curseur si la longueur de la page de l'utilisateur est inférieur à 900 pixels
+        // Cela concerne les téléphones portables et certains types de tablette
+        if(clientWidth <= 900) return
+
         document.addEventListener("mousemove", this.moveCursor);
         document.addEventListener('mouseleave', () => {
             this.hideCursor = true;
