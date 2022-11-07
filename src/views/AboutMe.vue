@@ -301,6 +301,7 @@ $color: #2D2B36;
         }
 
         &__img {
+            animation: fadeInLeftForImageTitle 1.5s linear;
             transform: translate(-20px, 10px) rotate(60deg);
         }
     }
@@ -324,6 +325,14 @@ $color: #2D2B36;
 
     .title {
         transform: translateX(10px);
+
+        &__text {
+            font-size: 64px;
+        }
+
+        &__img {
+            transform: translate(-10px, -10px) rotate(60deg) !important;
+        }
     }
 
     .img, .about {

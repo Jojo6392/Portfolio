@@ -198,12 +198,14 @@ $hamburger-zindex: 10;
         font-size: 20px;
         padding: 10px 20px;
 
-        &.onHover {
-            animation: buttonAnimationIn 250ms forwards;
-        }
+        @media (hover: hover) {
+            &.onHover {
+                animation: buttonAnimationIn 250ms forwards;
+            }
 
-        &.offHover {
-            animation: buttonAnimationOut 250ms forwards;
+            &.offHover {
+                animation: buttonAnimationOut 250ms forwards;
+            }
         }
     }
 }

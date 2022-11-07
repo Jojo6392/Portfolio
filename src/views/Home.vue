@@ -250,10 +250,12 @@ a {
     }
 }
 
-.onHover {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+@media (hover: hover) {
+    .onHover {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 span.menu__title {
@@ -424,6 +426,10 @@ span.menu__title {
 }
 
 @media (max-width: 500px) {
+
+    .menu__item__content:hover {
+        transform: scale(1.05);
+    }
 
     .text__name {
         font-size: 64px;
