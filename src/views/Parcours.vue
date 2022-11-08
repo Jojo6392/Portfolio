@@ -23,7 +23,7 @@
         </div>
 
         <!-- EXPERIENCES SECTION -->
-        <div :class="['experiences', (showExperiences === true ? 'active' : '')]"
+        <div :class="['experiences', 'cards', (showExperiences === true ? 'active' : '')]"
             v-show="showExperiences"
         >
             <div class="experience card"
@@ -62,7 +62,7 @@
         </div>
 
         <!-- FORMATIONS SECTION -->
-        <div :class="['formations', (showExperiences === true ? '' : 'active')]" 
+        <div :class="['formations', 'cards', (showExperiences === true ? '' : 'active')]" 
             v-show="!showExperiences"
         >
             <div class="formation card"
@@ -143,7 +143,7 @@ export default {
             formations: [
                 {
                     title: "LP Développement Web",
-                    institut: "Université de Cergy Paris Université",
+                    institut: "Université de Cergy Paris",
                     progression: "Obtenu",
                     date: "Septembre 2021 - Septembre 2022, 1 an",
                     lieu: "Gennevilliers, France",
@@ -152,11 +152,11 @@ export default {
                 },
                 {
                     title: "DUT Informatique",
-                    institut: "Université de - Versailles Saint-Quentin-en-Yvelines",
+                    institut: "Université de Versailles - Yvelines",
                     progression: "Obtenu",
                     date: "Septembre 2019 - Septembre 2021, 2 ans",
                     lieu: "Vélizy, France",
-                    description: "Le DUT Informatique prépare aux métiers de développeur et d’intégrateur. L’étudiant(e) apprend à concevoir, réaliser et mettre en œuvre des applications pour répondre aux besoins des utilisateurs. Permet d’intégrer directement le marché du travail ou propose des passerelles permettant un approfondissement des connaissances à l’Université ou en école d’ingénieurs.",
+                    description: "Le DUT Informatique prépare aux métiers de développeur et d’intégrateur. On apprend à concevoir, réaliser et mettre en œuvre des applications pour répondre aux besoins des utilisateurs. Permet d’intégrer directement le marché du travail ou propose des passerelles permettant un approfondissement des connaissances.",
                     img: require("../assets/views/parcours/uvsq.png"),
                 },
                 {
@@ -353,6 +353,7 @@ $background: rgb(27, 26, 35);
             font-size: 24px;
             font-family: 'RobotoCondensed Light';
             color: $white;
+            text-align: center;
             margin-bottom: 20px;
         }
 
@@ -400,7 +401,202 @@ $background: rgb(27, 26, 35);
                 width: 100%;
                 height: 1px;
                 background-color: $light_gray;
+                opacity: 1;
             }
+        }
+    }
+}
+
+// GRANDE MOYENNE RESOLUTION
+@media (max-width: 1540px) {
+    .container {
+        padding-top: 70px;
+    }
+
+    .cards {
+        transform: translateY(-25px);
+    }
+
+    .card {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 15px;
+
+        .img {
+            height: 40%;
+
+            &__center {
+                width: 125px;
+                height: 125px;
+            }
+        }
+
+        .content {
+            .title {
+                font-size: 40px;
+            }
+
+            .nom_and_type {
+                font-size: 20px;
+                margin-bottom: 15px;
+            }
+
+            .date, .lieu {
+                font-size: 16px;
+            }
+
+            .lieu {
+                margin-bottom: 0;
+            }
+
+            .description {
+                font-size: 15px;
+
+                &__title {
+                    font-size: 20px;
+                }
+
+                .divider {
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+    }
+}
+
+// MOYENNE RESOLUTION
+@media (max-width: 1200px) {
+    .container {
+        padding-top: 80px;
+    }
+
+    .experiences, .formations {
+        &__title {
+            font-size: 36px;
+        }
+    }
+
+    .switch {
+        div {
+            font-size: 14px;
+        }
+
+        ::v-deep #button-2 {
+            width: 60px;
+            height: 32px;
+
+            .knobs:before, .knobs:after {
+                width: 17.5px;
+                height: 7.5px;
+                top: 3.5px;
+            }
+        }
+    }
+
+    .divider {
+        margin-bottom: 15px;
+        margin-top: 15px;
+    }
+
+    .cards {
+        $gap: 50px;
+        gap: $gap;
+        justify-content: center;
+
+        .card {
+            width: calc(50% - $gap);
+
+            .content {
+                .description {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+
+// MOBILE RESOLUTION
+@media (max-width: 500px) {
+    .container {
+        padding: 0;
+        padding-top: 70px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .switch, .cards {
+        transform: none;
+    }
+
+    .switch {
+        margin-bottom: 20px;
+    }
+
+    .experiences, .formations {
+        &__title {
+            justify-content: center;
+
+            .tiret {
+                width: 30px;
+                height: 4px;
+            }
+        }
+    }
+
+    .cards {
+        width: calc(100% - 10vw);
+        margin-bottom: 20px;
+        gap: 25px;
+
+        .card {
+            width: 100%;
+            height: 60vh;
+            gap: 10px;
+            animation-name: fadeInLeft !important;
+
+            .img {
+                height: 35%;
+
+                &__center {
+                    width: 110px;
+                    height: 110px;
+                }
+            }
+
+            .content {
+                .title {
+                    font-size: 32px;
+                }
+
+                .nom_and_type {
+                    font-size: 16px;
+                }
+
+                .date, .lieu {
+                    font-size: 14px;
+                }
+
+                .description {
+                    margin-top: 0;
+                    font-size: 12px;
+
+                    &__title {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// OLD MOBILE
+@media (max-width: 500px) and (max-height: 700px) {
+    .content {
+        .description {
+            font-size: 10px !important;
         }
     }
 }

@@ -25,6 +25,7 @@ export default {
 
 <style scoped lang="scss">
 $white: rgb(229, 229, 229);
+$main_color: rgb(0, 112, 143);
 
 .knobs, .layer {
     position: absolute;
@@ -82,7 +83,7 @@ $white: rgb(229, 229, 229);
     text-align: center;
     line-height: 1;
     padding: 9px 4px;
-    background-color: rgb(0, 112, 143);
+    background-color: $main_color;
     border-radius: 50%;
     transition: 0.3s ease all;
 }
@@ -90,7 +91,7 @@ $white: rgb(229, 229, 229);
 #button-2 .knobs:after {
     right: -28px;
     left: auto;
-    background-color: #912720;
+    background-color: $main_color;
 }
 
 #button-2 .checkbox:checked + .knobs:before {
