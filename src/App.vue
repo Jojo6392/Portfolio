@@ -29,8 +29,6 @@ export default {
             yParent: 0,
             hover: false,
             hideCursor: true,
-
-            needSticky: false,
         }
     },
 
@@ -49,17 +47,6 @@ export default {
     },
 
     mounted() {
-
-        // Navbar
-        const navbar = document.getElementById("navbar");
-        const sticky = navbar.offsetTop;
-        window.onscroll = () => {
-            if(window.pageYOffset >= sticky)
-                this.needSticky = true
-            else
-                this.needSticky = false
-        };
-
         // Curseur
         const clientWidth  = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 

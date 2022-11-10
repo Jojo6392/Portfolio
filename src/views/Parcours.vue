@@ -115,7 +115,7 @@ export default {
                     title: "Développeur Web",
                     entreprise: "EDOSTAR Group",
                     type: "Contrat en alternance",
-                    date: "Octobre 2021 - Octobre 2022, 1 an et 1 mois",
+                    date: "Octobre 2021 - Novembre 2022, 1 an et 1 mois",
                     lieu: "Paris, France",
                     description: "Développement d’applications et d’outils de gestion, de suivi et de marketing. Refonte plus attractives et mise à jour régulière des différents sites, outils et applications du groupe. Structuration du code, des infrastructures et des data dans une optique de croissance. Participation à la mise en place de processus de développement coopératif.",
                     img: require("../assets/views/parcours/edostar.png"),
