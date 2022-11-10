@@ -35,6 +35,7 @@
                     @mouseleave="btnHoverBack = false"
                     @click="goBack"
                 >BACK</div>
+                <div @click="goContact">CONTACT</div>
             </div>
             <button class="toggle-menu">
                 <span></span>
@@ -111,6 +112,10 @@ export default {
 
         goHome: function() {
             this.$router.push({name: "Home"})
+        },
+
+        goContact: function() {
+            this.$router.push({name: "Contact"})
         },
 
         navigate: function(page) {

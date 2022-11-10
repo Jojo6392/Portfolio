@@ -1,9 +1,18 @@
+$main_color: rgb(45, 43, 54);
+
 body, html {
     margin: 0;
-    background-color: rgb(45, 43, 54);
+    background-color: $main_color;
     cursor: none;
     overflow-x: hidden;
     font-family: 'Jurassic Park';
+}
+
+.overlay-left,  .overlay-right,  .overlay-top,  .overlay-bottom   {
+    background: $main_color !important;
+    background-image: url('../assets/global/logo.png') !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
 }
 
 @font-face {
@@ -29,6 +38,11 @@ body, html {
 @font-face {
     font-family: "RobotoCondensed Light";
     src: url("./police/RobotoCondensed-Light.ttf");
+}
+
+@font-face {
+    font-family: "RobotoCondensed Regular";
+    src: url("./police/RobotoCondensed-Regular.ttf");
 }
 
 @font-face {
