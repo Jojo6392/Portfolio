@@ -51,7 +51,7 @@
                 </div>
                 <div class="menu__item">
                     <div class="menu__item__content" @mouseenter="onHover($event)" @mouseleave="onHover($event)" @click="redirectToPage(1)">
-                        <img class="menu__item__img" src="../assets/global/competences.png" alt="Services">
+                        <img class="menu__item__img" src="../assets/global/competences.png" alt="Competences">
                         <div class="menu__item__content__text" style="background-color: rgba(4, 141, 116, 0.5); backdrop-filter: blur(2px);">
                             Voir les competences acquises
                         </div>
@@ -59,7 +59,7 @@
                 </div>
                 <div class="menu__item">
                     <div class="menu__item__content" @mouseenter="onHover($event)" @mouseleave="onHover($event)" @click="redirectToPage(2)">
-                        <img class="menu__item__img" src="../assets/global/realisations.png" alt="Projects">
+                        <img class="menu__item__img" src="../assets/global/realisations.png" alt="Realisations">
                         <div class="menu__item__content__text" style="background-color: rgba(109, 133, 54, 0.5); backdrop-filter: blur(2px);">
                             <!-- List of projects that I have currently completed  -->
                             Liste de projets realises
@@ -68,13 +68,16 @@
                 </div>
                 <div class="menu__item">
                     <div class="menu__item__content" @mouseenter="onHover($event)" @mouseleave="onHover($event)" @click="redirectToPage(3)">
-                        <img class="menu__item__img" src="../assets/global/parcours.png" alt="Professional Experiences">
+                        <img class="menu__item__img" src="../assets/global/parcours.png" alt="Parcours">
                         <div class="menu__item__content__text" style="background-color: rgba(0, 112, 143, 0.5); backdrop-filter: blur(2px);">
                             <!-- Look at all my degrees and experiences  -->
                             Voir mes formations et experiences
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="contact">
+                Contactez-moi
             </div>
         </div>
     </div>
@@ -135,6 +138,8 @@ $competences: rgb(4, 141, 116);
 $realisations: rgb(109, 133, 54);
 $parcours: rgb(0, 112, 143);
 $background_image: rgb(27, 26, 35);
+$red: rgb(165, 50, 50);
+$white: rgb(229, 229, 229);
 
 a {
     text-decoration: inherit;
@@ -155,6 +160,7 @@ a {
     flex-direction: column;
     align-items: center;
     margin-top: 100px;
+    margin-bottom: 20px;
 }
 
 .home {
@@ -186,13 +192,13 @@ a {
 
     &__name {
         font-size: 120px;
-        
+        color: $white;
     }
 
     &__metier {
         display: flex;
         align-items: center;
-        color: rgb(165, 50, 50);
+        color: $red;
 
         &__img {
             width: 42px;
@@ -242,8 +248,9 @@ a {
                 width: 100%;
                 height: 94%;
                 border-radius: 20px;
-                font-size: 60px;
-                color: $background_image;
+                font-size: 32px;
+                font-family: 'ExplosionBook';
+                color: $white;
             }
         }
 
@@ -251,6 +258,54 @@ a {
             border-radius: 20px;
             width: 400px;
         }
+    }
+}
+
+.contact {
+    $border_height: 2px;
+
+    font-size: 32px;
+    font-family: 'KG Compassion';
+    color: $white;
+
+    border-bottom: $border_height solid rgba($color: $red, $alpha: .9);
+    position: relative;
+    
+    &::before {
+        content: '';
+        border-bottom: calc($border_height - 1px) solid $red;
+
+        width: 100%;
+        height: 100%;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(1.03) rotate(2deg);
+    }
+
+    &:after {
+        content: "";
+        width: 100%;
+        height: $border_height;
+
+        background-color: $parcours;
+
+        position: absolute;
+        left: 0;
+        bottom: -$border_height;
+
+        transform-origin: left; 
+        transform: scale(0);
+        transition: 0.25s linear;
+    }
+
+    &:hover:after {
+        transform: scale(1);
+    }
+
+    &:hover:before {
+        border-color: $parcours;
     }
 }
 
@@ -346,7 +401,7 @@ span.menu__title {
 
                 &__text {
                     height: 91%;
-                    font-size: 44px;
+                    font-size: 18px;
                 }
             }
             &__img {
@@ -374,7 +429,7 @@ span.menu__title {
 
     .text {
         font-size: 32px;
-        color: white;
+        color: $white;
         width: 100%;
         text-align: center;
         padding: 0;
@@ -395,7 +450,7 @@ span.menu__title {
             &__content {
                 &__text {
                     height: 92%;
-                    font-size: 42px;
+                    font-size: 14px;
                 }
             }
 
