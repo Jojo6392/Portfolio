@@ -35,7 +35,12 @@
                     @mouseleave="btnHoverBack = false"
                     @click="goBack"
                 >BACK</div>
-                <div @click="goContact">CONTACT</div>
+                <div class="contact icons_menu__btn"
+                    @click="goContact"
+                    :class="{ onHover: btnHoverContact, offHover: !btnHoverContact }"
+                    @mouseenter="btnHoverContact = true"
+                    @mouseleave="btnHoverContact = false"
+                >CONTACT</div>
             </div>
             <button class="toggle-menu">
                 <span></span>
@@ -51,6 +56,7 @@ export default {
         return {
             btnHoverHome: false,
             btnHoverBack: false,
+            btnHoverContact: false,
         }
     },
 
@@ -196,6 +202,9 @@ $hamburger-zindex: 10;
     margin-left: 2em;
 
     &__btn {
+        // height: 55%;
+        display: flex;
+        align-items: center;
         font-family: 'KG Compassion';
         color: white;
         background-color: #212028;

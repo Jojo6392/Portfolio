@@ -4,27 +4,28 @@
             Me contacter !
         </div>
         <div class="text">
-            Contactez moi pour avoir plus d'informations, pouvoir échanger...
+            Vous avez la possibilité de me contacter par mail et de cliquer pour copier les différentes informations ci-dessous.
         </div>
         <div class="informations">
             <div v-for="information in informations" 
                 :key="information.text" 
-                class="information" 
-                @click="changeForm(information.isMail)"
+                class="information"
+                @click="copyText(information.text)"
+                @mouseenter="information.isHover = true"
+                @mouseleave="information.isHover = false"
+                :class="{ onHover: information.isHover, offHover: !information.isHover }"
             >
-                <img :src="information.icon" alt="icon">
+                <img class="icon" :src="information.icon" alt="icon">
                 <div>{{ information.text }}</div>
             </div>
         </div>
 
-        <form 
-            @submit.prevent="sendMessage"
-        >
+        <form @submit.prevent="sendMessage" id="form">
             <div class="inputs">
 
                 <div class="label">Votre Nom et Prénom *</div>
                 <div class="input">
-                    <img src="../assets/contact/user.svg" alt="user icon">
+                    <img class="icon" src="../assets/contact/user.svg" alt="user icon">
                     <input type="text" name="name" id="name" 
                         placeholder="Joris Margotteau" 
                         v-model="form.user"
@@ -32,10 +33,10 @@
                     >
                 </div>
 
-                <div v-if="isFormMail" class="label">Mail *</div>
+                <div class="label">Mail *</div>
                 <div class="isValidMail" v-if="!isValidMail">Email Invalide</div>
-                <div v-if="isFormMail" class="input">
-                    <img src="../assets/contact/mail.svg" alt="mail icon">
+                <div class="input">
+                    <img class="icon" src="../assets/contact/mail.svg" alt="mail icon">
                     <input type="mail"
                         name="mail" 
                         id="mail" 
@@ -45,18 +46,12 @@
                     >
                 </div>
 
-                <div v-if="isFormPhone" class="label">Numéro de téléphone *</div>
-                <div v-if="isFormPhone" class="input">
-                    <img src="../assets/contact/phone.svg" alt="phone icon">
-                    <input type="tel" name="mail" id="mail" placeholder="0659610137" v-model="form.phone">
-                </div>
-
                 <VueRecaptcha class="recaptcha" ref="recaptcha" 
                     :sitekey="siteKey" 
                     @verify="notARobot = true" 
                     @expired="notARobot = false"
                 />
-                <input type="submit" value="Envoyer le message" :class="{disabled: !validForm}">
+                <input type="submit" value="Envoyer le message" :class="[validForm === true ? 'activated' : 'disabled']">
             </div>
             <textarea 
                 v-model="form.message"
@@ -67,14 +62,24 @@
                 placeholder="Votre message ..."
             ></textarea>
         </form>
+        <!-- Snackbar pour la copie -->
+        <Snackbar v-if="copied" :icon="require('../assets/icons/copy.svg')" text="Texte copié avec succès." backgroundColor="#1391bf" />
+        <!-- Snackbar pour le msg d'envoi du mail -->
+        <Snackbar v-if="informationSendMail.isSend" 
+            :icon="informationSendMail.icon" 
+            :text="informationSendMail.text" 
+            :backgroundColor="informationSendMail.backgroundColor" 
+        />
     </div>
 </template>
 
 <script>
 import dotenv from "dotenv"
 dotenv.config()
-import { VueRecaptcha } from 'vue-recaptcha';
 import emailjs from "@emailjs/browser"
+
+import { VueRecaptcha } from 'vue-recaptcha';
+import Snackbar from "../components/Snackbar.vue"
 
 export default {
     data() {
@@ -83,13 +88,13 @@ export default {
                 {
                     icon: require("../assets/contact/mail.svg"),
                     text: "jorismargotteau@gmail.com",
-                    isMail: true
+                    isHover: false,
                 },
 
                 {
                     icon: require("../assets/contact/phone.svg"),
                     text: "06 59 61 01 37",
-                    isMail: false
+                    isHover: false,
                 },
             ],
             siteKey: process.env.VUE_APP_SITE_KEY,
@@ -97,13 +102,17 @@ export default {
             form: {
                 user: "",
                 mail: "",
-                phone: "",
                 message: "",
             },
             validForm: false,
-            isFormMail: true,
-            isFormPhone: false,
             isValidMail: true,
+            copied: false,
+            informationSendMail: {
+                isSend: false,
+                text: "",
+                icon: "",
+                backgroundColor: "",
+            },
         }
     },
 
@@ -112,9 +121,6 @@ export default {
             this.checkForm()
         },
         "form.mail"() {
-            this.checkForm()
-        },
-        "form.phone"() {
             this.checkForm()
         },
         "form.message"() {
@@ -133,21 +139,10 @@ export default {
 
     components: {
         VueRecaptcha,
+        Snackbar
     },
 
     methods: {
-
-        changeForm(isMail) {
-            if(isMail) {
-                this.isFormMail = true
-                this.isFormPhone = false
-            }
-            else {
-                this.isFormMail = false
-                this.isFormPhone = true
-            }
-            this.resetForm()
-        },
 
         checkForm() {
             this.validForm = false
@@ -173,36 +168,67 @@ export default {
         },
 
         sendMessage() {
-            console.log("envoie du message");
-            if(this.isFormMail) {
-                this.isValidMail = this.validateEmail(this.form.mail)
-                if(!this.isValidMail) return
+            this.isValidMail = this.validateEmail(this.form.mail)
+            if(!this.isValidMail) return
 
-                emailjs.init(process.env.VUE_APP_EMAILJS_INIT)
+            emailjs.init(process.env.VUE_APP_EMAILJS_INIT)
 
-                const data = {
-                    from_name: this.form.user,
-                    from_mail: this.form.mail,
-                    message: this.form.message
-                }
-                const sendMail = emailjs.send(
-                    process.env.VUE_APP_EMAILJS_SERVICE,
-                    process.env.VUE_APP_EMAILJS_TEMPLATE,
-                    data
-                )
-
-                sendMail.then(res => {
-                    console.log('SUCCESS!', res.status, res.text);
-                    this.resetForm()
-                }, err => {
-                    console.log('FAILED...', err);
-                })
+            const data = {
+                from_name: this.form.user,
+                from_mail: this.form.mail,
+                message: this.form.message
             }
+            const sendMail = emailjs.send(
+                process.env.VUE_APP_EMAILJS_SERVICE,
+                process.env.VUE_APP_EMAILJS_TEMPLATE,
+                data
+            )
+
+            sendMail.then(res => {
+                if(res.status === 200) {
+                    this.informationSendMail.isSend = true
+                    this.informationSendMail.text = "Mail envoyé avec succès."
+                    this.informationSendMail.icon = require("../assets/icons/check.svg")
+                    this.informationSendMail.backgroundColor = "#4BB543"
+
+                    setTimeout(() => {
+                        this.informationSendMail.isSend = false
+                    }, 3000);
+                }
+                else {
+                    this.informationSendMail.isSend = true
+                    this.informationSendMail.text = "Erreur, le mail n'a pas été envoyé."
+                    this.informationSendMail.icon = require("../assets/icons/alert.svg")
+                    this.informationSendMail.backgroundColor = "#721c24"
+
+                    setTimeout(() => {
+                        this.informationSendMail.isSend = false
+                    }, 3000);
+                }
+                this.resetForm()
+            }, err => {
+                this.informationSendMail.isSend = true
+                    this.informationSendMail.text = "Erreur, le mail n'a pas été envoyé. Erreur : " + err 
+                    this.informationSendMail.icon = require("../assets/icons/alert.svg")
+                    this.informationSendMail.backgroundColor = "#721c24"
+
+                    setTimeout(() => {
+                        this.informationSendMail.isSend = false
+                    }, 3000);
+            })
         },
 
         validateEmail(email) {
             var re = /\S+@\S+\.\S+/;
             return re.test(email);
+        },
+
+        copyText(text) {
+            this.copied = true
+            navigator.clipboard.writeText(text);
+            setTimeout(() => {
+                this.copied = false
+            }, 3000);
         },
     }
 }
@@ -219,15 +245,27 @@ $gray: rgb(86, 86, 86);
 //     transform-origin:0 0;
 // }
 
+.icon {
+    filter: invert(10%) sepia(77%) saturate(2485%) hue-rotate(346deg) brightness(103%) contrast(88%);
+}
+
 .container {
     width: 100vw;
     height: 100vh;
+    overflow-y: hidden;
     background-color: rgb(175, 175, 175);
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    .title, .text {
+        opacity: 0;
+        animation: fadeInTop 500ms ease-in;
+        animation-fill-mode: forwards;
+        animation-delay: 750ms;
+    }
 
     .title {
         font-size: 64px;
@@ -255,6 +293,12 @@ $gray: rgb(86, 86, 86);
     gap: 100px;
     margin-bottom: 75px;
 
+    opacity: 0;
+    animation-name: scaleZ;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-delay: 500ms;
+
     .information {
         display: flex;
         flex-direction: column;
@@ -269,6 +313,14 @@ $gray: rgb(86, 86, 86);
         box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.1);
 
         padding: 20px 40px;
+
+        &.onHover {
+            animation: buttonAnimationIn 250ms forwards;
+        }
+
+        &.offHover {
+            animation: buttonAnimationOut 250ms forwards;
+        }
 
         img {
             margin-bottom: 15px;
@@ -286,6 +338,13 @@ form {
 
     background-color: $white;
     box-shadow: 15px 15px 0px 0px rgba(0, 0, 0, 0.1);
+
+    opacity: 0;
+    animation-name: fadeInBottom;
+    animation-duration: 750ms;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
 
     .inputs {
         width: 50%;
@@ -349,6 +408,24 @@ form {
             font-size: 18px;
             color:$white;
 
+            &.activated {
+
+                &:hover {
+                    animation-name: animationSubmitBtn;
+                    animation-duration: 250ms;
+                    animation-fill-mode: forwards;
+                    animation-timing-function: ease-in;
+                    cursor: none;
+                }
+
+                &:not(:hover) {
+                    animation-name: animationSubmitBtn2;
+                    animation-duration: 250ms;
+                    animation-fill-mode: forwards;
+                    animation-timing-function: ease-out;
+                }
+            }
+
             &.disabled {
                 cursor: none;
                 background-color: rgba(239, 239, 239);
@@ -370,6 +447,83 @@ form {
         border-radius: 10px;
         border: 2px solid $main_color;
         background-color: white;
+    }
+}
+
+@keyframes buttonAnimationIn {
+    from {
+        transform: translate(0px, 0px);
+        box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.1);
+    }
+    to {
+        transform: translate(10px, 10px);
+        box-shadow: none;
+    }
+}
+
+@keyframes buttonAnimationOut {
+    from {
+        transform: translate(10px, 10px);
+        box-shadow: none;
+    }
+    to {
+        transform: translate(0px, 0px);
+        box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.1);
+    }
+}
+
+@keyframes fadeInTop {
+    from {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+@keyframes fadeInBottom {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+@keyframes animationSubmitBtn {
+    from {
+        transform: translate(0px, 0px);
+        box-shadow: 5px 2px 0px 2px rgba(255, 255, 255, 0.5);
+    }
+    to {
+        transform: translate(5px, 2px);
+        box-shadow: none;
+    }
+}
+
+@keyframes animationSubmitBtn2 {
+    from {
+        transform: translate(5px, 2px);
+        box-shadow: none;
+    }
+    to {
+        transform: translate(0px, 0px);
+        box-shadow: 5px 2px 0px 2px rgba(255, 255, 255, 0.5);
+    }
+}
+
+@keyframes scaleZ {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
     }
 }
 </style>

@@ -8,8 +8,8 @@ import Projects from "../views/Projects.vue"
 import Realisations from "../views/Realisations.vue"
 import Projets from "../views/Projects.vue"
 import Parcours from "../views/Parcours.vue"
+import Contact from "../views/Contact.vue"
 import Test from "../components/Test.vue"
-import Contact from "../components/Contact.vue"
 
 Vue.use(VueRouter)
 
