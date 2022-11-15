@@ -56,4 +56,17 @@ $white: rgb(229, 229, 229);
         filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
     }
 }
+
+@media (max-width: 500px) {
+    .snackbar {
+        height: 40px;
+        padding-inline: 10px;
+        gap: 5px;
+        font-size: 12px;
+        
+        img {
+            width: 15px;
+        }
+    }
+}
 </style>

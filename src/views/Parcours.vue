@@ -172,10 +172,6 @@ export default {
         }
     },
 
-    mounted () {
-        document.documentElement.scrollTop = document.body.scrollTop = 0;
-    },
-
     components: {
         SwitchParcours,
     },

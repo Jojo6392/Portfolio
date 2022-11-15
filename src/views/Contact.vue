@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container_contact">
         <div class="title">
             Me contacter !
         </div>
@@ -239,17 +239,11 @@ $main_color: rgb(113, 30, 30);
 $white: rgb(229, 229, 229);
 $gray: rgb(86, 86, 86);
 
-// RESIZE RECAPTCHA
-// .recaptcha {
-//     transform:scale(0.77);
-//     transform-origin:0 0;
-// }
-
 .icon {
     filter: invert(10%) sepia(77%) saturate(2485%) hue-rotate(346deg) brightness(103%) contrast(88%);
 }
 
-.container {
+.container_contact {
     width: 100vw;
     height: 100vh;
     overflow-y: hidden;
@@ -281,6 +275,7 @@ $gray: rgb(86, 86, 86);
     .text {
         font-size: 24px;
         font-family: 'RobotoCondensed Light';
+        text-align: center;
         color: $white;
 
         margin-bottom: 40px;
@@ -314,12 +309,14 @@ $gray: rgb(86, 86, 86);
 
         padding: 20px 40px;
 
-        &.onHover {
-            animation: buttonAnimationIn 250ms forwards;
-        }
+        @media (hover: hover) {
+            &.onHover {
+                animation: buttonAnimationIn 250ms forwards;
+            }
 
-        &.offHover {
-            animation: buttonAnimationOut 250ms forwards;
+            &.offHover {
+                animation: buttonAnimationOut 250ms forwards;
+            }
         }
 
         img {
@@ -410,19 +407,21 @@ form {
 
             &.activated {
 
-                &:hover {
-                    animation-name: animationSubmitBtn;
-                    animation-duration: 250ms;
-                    animation-fill-mode: forwards;
-                    animation-timing-function: ease-in;
-                    cursor: none;
-                }
+                @media (hover: hover) {
+                     &:hover {
+                        animation-name: animationSubmitBtn;
+                        animation-duration: 250ms;
+                        animation-fill-mode: forwards;
+                        animation-timing-function: ease-in;
+                        cursor: none;
+                    }
 
-                &:not(:hover) {
-                    animation-name: animationSubmitBtn2;
-                    animation-duration: 250ms;
-                    animation-fill-mode: forwards;
-                    animation-timing-function: ease-out;
+                    &:not(:hover) {
+                        animation-name: animationSubmitBtn2;
+                        animation-duration: 250ms;
+                        animation-fill-mode: forwards;
+                        animation-timing-function: ease-out;
+                    }
                 }
             }
 
@@ -447,6 +446,159 @@ form {
         border-radius: 10px;
         border: 2px solid $main_color;
         background-color: white;
+    }
+}
+
+// GRANDE RESOLUTION
+@media (max-width: 1540px) {
+    .icon {
+        width: 25px !important;
+    }
+
+    .container_contact {
+        .title {
+            font-size: 56px;
+            margin-top: 40px;
+        }
+
+        .text {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+    }
+    .informations {
+        margin-bottom: 40px;
+
+        .information {
+            width: 150px;
+            font-size: 12px;
+        }
+    }
+
+    form {
+        padding: 40px;
+        padding-bottom: 50px;
+        .inputs {
+            .input {
+                font-size: 14px;
+                margin-bottom: 20px;
+            }
+
+            .label {
+                font-size: 14px;
+            }
+
+            .recaptcha {
+                transform:scale(0.8);
+                transform-origin:0 0;
+                margin: 0;
+            }
+        }
+
+        textarea#message {
+            width: calc(50% - 44px);
+        }
+    }
+}
+
+// MOYENNE ET GRANDE RESOLUTION AVEC PETITE LONGUEUR
+@media (max-width: 1540px) and (min-width: 1000px) and (max-height: 800px) {
+    .container_contact {
+        .title {
+            margin-top: 30px;
+        }
+
+        .informations {
+            margin-bottom: 30px;
+        }
+
+        form {
+            padding-top: 30px;
+            padding-bottom: 75px;
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .container_contact {
+        height: auto;
+        overflow-y: initial;
+        padding-top: 25px;
+        .title {
+            font-size: 44px;
+            margin-bottom: 0;
+        }
+
+        .text {
+            font-size: 14px;
+            margin: 20px 30px;
+        }
+
+        .informations {
+            gap: 20px;
+            justify-content: center;
+            width: 100%;
+
+            .information {
+                width: 35%;
+                padding: 10px;
+                font-size: 8px;
+
+                img {
+                    width: 20px !important;
+                    margin-bottom: 5px;
+                }
+            }
+        }
+
+        form {
+            flex-direction: column-reverse;
+            align-items: center;
+            padding: 20px 0px;
+
+            height: auto;
+            width: 90%;
+
+            .inputs {
+                width: 100%;
+                align-items: center;
+
+                .input {
+                    font-size: 12px;
+                }
+
+                .label {
+                    align-self: flex-start;
+                    margin-left: 20px;
+
+                    font-size: 12px;
+                }
+
+                .recaptcha {
+                    transform-origin: center;
+                    transform: scale(0.6);
+                }
+
+                & :nth-of-type(4) {
+                    margin-bottom: 0;
+                }
+            }
+
+            textarea#message {
+                width: -webkit-fill-available;
+                height: 100px;
+                margin: 20px;
+                margin-top: 0;
+                padding: 10px;
+
+                font-size: 12px;
+            }
+
+            input[type="submit"] {
+                font-size: 12px;
+                padding: 10px;
+            }
+        }
     }
 }
 

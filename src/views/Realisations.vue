@@ -279,8 +279,6 @@ export default {
 
     mounted() {
 
-        document.documentElement.scrollTop = document.body.scrollTop = 0;
-        
         const options = {
             container: document.body,
             panelSelector: '.page',

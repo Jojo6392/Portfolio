@@ -323,10 +323,6 @@ export default {
         }
     },
 
-    mounted () {
-        document.documentElement.scrollTop = document.body.scrollTop = 0;
-    },
-
     methods: {
         /**
          * @param {Number} index

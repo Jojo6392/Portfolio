@@ -46,6 +46,18 @@ export default {
         }
     },
 
+    watch: {
+        $route(to, from) {
+            document.documentElement.scrollTop = document.body.scrollTop = 0;
+
+            // CONTACT SECTION
+            const containerElement = document.querySelector(".container");
+        
+            if(to.name === 'Contact') containerElement.classList.add("background_contact")
+            else if (from.name === 'Contact') containerElement.classList.remove("background_contact")
+        }
+    },
+
     mounted() {
         // Curseur
         const clientWidth  = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
@@ -79,6 +91,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+.background_contact {
+    background-color: rgb(175, 175, 175);
+}
 
 .cursor {
 
