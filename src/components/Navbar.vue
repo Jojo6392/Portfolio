@@ -19,6 +19,10 @@
                     <div id="lien" class="hidden" @click="navigate(4)">Parcours</div>
                     <img class="img__lien" src="../assets/global/cursor.svg" alt="4">
                 </div>
+                <div class="hyperlien">
+                    <div id="lien" class="hidden" @click="navigate(5)">Contact</div>
+                    <img class="img__lien" src="../assets/global/cursor.svg" alt="4">
+                </div>
             </div>
         </div>
         <div class="menu__items">
@@ -69,25 +73,7 @@ export default {
         hamburgerMenu.addEventListener("click", () => {
             hamburgerMenu.classList.toggle('active')
             menu.classList.toggle('open')
-            liens.forEach((lien, i) => {
-                switch (i) {
-                    case 0:
-                        this.animateLien(lien, i)
-                        break;
-                    case 1:
-                        this.animateLien(lien, i)
-                        break;
-                    case 2:
-                        this.animateLien(lien, i)
-                        break;
-                    case 3:
-                        this.animateLien(lien, i)
-                        break;
-
-                    default: break;
-                }
-                
-            })
+            liens.forEach((lien, i) => this.animateLien(lien, i))
 
         })
 
@@ -158,6 +144,10 @@ export default {
 
                 case 4:
                     this.$router.push({name: 'Parcours'})
+                    break;
+
+                case 5:
+                    this.$router.push({name: 'Contact'})
                     break;
 
                 default: break;

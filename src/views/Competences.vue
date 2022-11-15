@@ -103,7 +103,7 @@ export default {
                             img: require("../assets/views/competences/front-end/sass.png"),
                             resizeImg: false,
                             onHover: false,
-                            name: "SASS"
+                            name: "SCSS/SASS"
                         },
                         {
                             img: require("../assets/views/competences/front-end/javascript.png"),
@@ -123,12 +123,12 @@ export default {
                             onHover: false,
                             name: "Vuetify"
                         },
-                        {
-                            img: require("../assets/views/competences/front-end/nuxt.png"),
-                            resizeImg: false,
-                            onHover: false,
-                            name: "Nuxt"
-                        },
+                        // {
+                        //     img: require("../assets/views/competences/front-end/nuxt.png"),
+                        //     resizeImg: false,
+                        //     onHover: false,
+                        //     name: "Nuxt"
+                        // },
                     ],
                     isActive: true,
                     mouseEnter: false,
