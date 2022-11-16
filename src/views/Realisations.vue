@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div class="projects page">
+        <div id="page" class="projects page">
             <div class="projects__title">
                 <div class="projects__title__text">Realisations</div>
                 <img class="projects__title__img" src="../assets/global/cursor.svg" alt="">
@@ -26,16 +26,18 @@
                 >
             </div>
         </div>
-        <div 
+        <div id="page"
             class="project page"
             v-for="(item, indexItem) in realisations"
             :key="indexItem"
-            v-observe-visibility="{
+            v-scrollanimation-mobile
+        >
+        <!-- v-observe-visibility="{
                 callback: (isVisible, entry) => visibilityChanged(isVisible, entry, indexItem),
                 once: true
             }"
-            v-scrollanimation-mobile
-        >
+            Nécessaire pour remettre l'auto carrousel en place dans l'element juste au dessus
+        -->
             <div class="card"
                 @click="toggleContent($event.target)"
             >
@@ -111,8 +113,9 @@
                     <div
                         class="dot"
                         :class="{ dot__active: image.isActive }"
-                        @click="changeActive(item.images, indexImage, indexItem)"
+                        @click="changeActive(item.images, indexImage)"
                     ></div>
+                    <!-- Donner indexItem en 3ème paramètre pour l'auto carrousel -->
             </div>
         </div>
         </div>
@@ -270,31 +273,39 @@ export default {
                 },
             ],
             time: 5000,
+            panelSnapInstance: null,
+            
         }
     },
 
-    watch: {
+    computed: {
+        test() {
+            const options = {
+                container: document.body,
+                panelSelector: '#page',
+                directionThreshold: 1,
+                delay: 0,
+                duration: 500,
+                easing: function(t) { return t },
+            };
+            return new PanelSnap(options);
+        }
+    },
 
+    beforeDestroy () {
+        this.panelSnapInstance.destroy();
     },
 
     mounted() {
-
-        const options = {
-            container: document.body,
-            panelSelector: '.page',
-            directionThreshold: 1,
-            delay: 0,
-            duration: 500,
-            easing: function(t) { return t },
-        };
 
         // Ne pas appliquer l'effet "fullPage" aux écrans de téléphone portable
         const clientWidth  = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 
         if(clientWidth > 500) {
-            this.panelSnapInstance = new PanelSnap(options);
-    
-            this.panelSnapInstance.on('activatePanel', this.activatePanel);
+            setTimeout(() => {
+                this.panelSnapInstance = this.test
+            }, 500);
+            // this.panelSnapInstance.on('activatePanel', this.activatePanel);
         }
     },
 
@@ -316,6 +327,7 @@ export default {
         },
 
         /**
+         * Ne fonctionne pas, n'est pas utilisé pour le moment
          * @param {Array<Object>} items
          * @param {Number} indexItem
          */
@@ -332,9 +344,9 @@ export default {
         /**
          * @param {Array<Object>} items
          * @param {Number} indexImage
-         * @param {Number} indexItem
          */
-        changeActive(items, indexImage, indexItem) {
+        changeActive(items, indexImage) {
+            // paramètre "indexItem" nécessaire pour l'auto carrousel
             
             // récupérer le dernier actif pour le mettre à false
             const previousIndex = items.map(e => e.isActive).indexOf(true);
@@ -344,9 +356,9 @@ export default {
             items[indexImage].isActive = true
 
             // restart interval
-            this.realisations[indexItem].interval = setInterval(() => {
-                this.autoCarrousel(items, indexItem)
-            }, this.time)
+            // this.realisations[indexItem].interval = setInterval(() => {
+            //     this.autoCarrousel(items, indexItem)
+            // }, this.time)
         },
 
         visibilityChanged (isVisible, entry, index) {
@@ -371,7 +383,6 @@ $third_color: #C9CAD9;
     display: flex;
     align-items: center;
     flex-direction: column;
-    gap: 50px;
 }
 
 .page {
@@ -392,9 +403,7 @@ $third_color: #C9CAD9;
 }
 
 .projects {
-    padding: 2.5em 1em 0 1em;
     font-size: 32px;
-    height: 90vh;
 
     &__title {
         display: flex;
@@ -402,8 +411,10 @@ $third_color: #C9CAD9;
         font-family: 'Jurassic Park';
         height: 100px;
         font-size: 144px;
+
+        padding-top: 75px;
         padding-left: 1em;
-        padding-bottom: 0.5em;
+        padding-bottom: 50px;
 
         &__img {
             transform: translate(-30px, 30px) rotate(60deg);
