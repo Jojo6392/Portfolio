@@ -48,14 +48,17 @@ export default {
 
     watch: {
         $route(to, from) {
-            document.documentElement.scrollTop = document.body.scrollTop = 0;
-
             // CONTACT SECTION
             const containerElement = document.querySelector(".container");
         
             if(to.name === 'Contact') containerElement.classList.add("background_contact")
             else if (from.name === 'Contact') containerElement.classList.remove("background_contact")
         }
+    },
+    created () {
+        window.addEventListener('beforeunload', () => {
+            document.documentElement.scrollTop = document.body.scrollTop = 0;
+        });
     },
 
     mounted() {
