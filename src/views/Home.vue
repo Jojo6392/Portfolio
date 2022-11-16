@@ -8,7 +8,7 @@
                         Hi, I am
                     </div>
                     <div class="text__name">
-                        Joris
+                        Joris Margotteau
                     </div>
                     <div class="text__metier">
                         Web Developer
@@ -423,7 +423,7 @@ span.menu__title {
 
 @media (max-width: 1250px) {
     .text__name {
-        font-size: 82px;
+        font-size: 64px;
     }
 }
 
