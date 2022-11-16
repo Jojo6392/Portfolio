@@ -151,8 +151,9 @@ a {
 
 #home {
     width: 100vw;
+    height: 100%;
+
     display: flex;
-    justify-content: center;
     flex-direction: column;
     align-items: center;
     margin-top: 100px;
@@ -160,6 +161,10 @@ a {
 }
 
 .home {
+    &__content {
+        height: 100vh;
+        overflow: hidden;
+    }
     &__header {
         display: flex;
         flex-direction: row;
@@ -214,6 +219,7 @@ a {
     justify-content: center;
     align-items: center;
     width: 100%;
+    height: 50%;
     overflow: hidden;
 
     &__item {
@@ -383,6 +389,17 @@ span.menu__title {
 	filter: invert(16%) sepia(0%) saturate(1346%) hue-rotate(142deg) brightness(98%) contrast(89%);
 }
 
+@media (max-width: 1800px) {
+
+    .home__content {
+        overflow-y: auto;
+    }
+
+    .menu {
+        height: auto;
+    }
+}
+
 @media (min-width: 900px) and (max-width: 1500px) {
     .text__name {
         font-size: 96px;
@@ -430,6 +447,8 @@ span.menu__title {
 @media (max-width: 900px) {
 
     .home__content {
+        height: auto;
+        overflow: auto;
         margin-top: 50px;
     }
 
