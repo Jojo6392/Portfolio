@@ -66,6 +66,14 @@ export default {
         // Cela concerne les téléphones portables et certains types de tablette
         if(clientWidth <= 900) return
 
+        // Le curseur ne marche pas sur Firefox, il faudra creuser le pourquoi du comment, 
+        // le temps petit fix pour éviter de ne pas avoir de curseur 
+        const isFirefox = navigator.userAgent.search("Firefox");
+        if(isFirefox !== -1) {
+            document.body.style.cursor = "crosshair" 
+            return
+        }
+
         document.addEventListener("mousemove", this.moveCursor);
         document.addEventListener('mouseleave', () => {
             this.hideCursor = true;
