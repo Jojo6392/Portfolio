@@ -8,7 +8,7 @@
                         Hi, I am
                     </div>
                     <div class="text__name">
-                        Joris Margotteau
+                        Joris
                     </div>
                     <div class="text__metier">
                         Web Developer
@@ -384,6 +384,10 @@ span.menu__title {
 }
 
 @media (min-width: 900px) and (max-width: 1500px) {
+    .text__name {
+        font-size: 96px;
+    }
+
     .menu {
         display: flex;
         flex-direction: row;
@@ -414,6 +418,12 @@ span.menu__title {
 @media (max-width: 1200px) and (min-width: 1100px) {
     .dino_walk {
         bottom: -40%;
+    }
+}
+
+@media (max-width: 1250px) {
+    .text__name {
+        font-size: 82px;
     }
 }
 
