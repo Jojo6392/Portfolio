@@ -279,7 +279,7 @@ export default {
     },
 
     computed: {
-        test() {
+        panelSnap() {
             const options = {
                 container: document.body,
                 panelSelector: '#page',
@@ -292,10 +292,6 @@ export default {
         }
     },
 
-    beforeDestroy () {
-        this.panelSnapInstance.destroy();
-    },
-
     mounted() {
 
         // Ne pas appliquer l'effet "fullPage" aux écrans de téléphone portable
@@ -303,10 +299,14 @@ export default {
 
         if(clientWidth > 500) {
             setTimeout(() => {
-                this.panelSnapInstance = this.test
+                this.panelSnapInstance = this.panelSnap
             }, 500);
             // this.panelSnapInstance.on('activatePanel', this.activatePanel);
         }
+    },
+
+    beforeDestroy () {
+        this.panelSnapInstance.destroy();
     },
 
     methods: {
