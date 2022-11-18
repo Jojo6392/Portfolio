@@ -10,6 +10,7 @@ import Projets from "../views/Projects.vue"
 import Parcours from "../views/Parcours.vue"
 import Contact from "../views/Contact.vue"
 import Test from "../components/Test.vue"
+import Page404 from "../views/404.vue"
 
 Vue.use(VueRouter)
 
@@ -60,6 +61,17 @@ const routes = [
         component: Contact,
         meta: { transition: "overlay-down-full"}
     },
+    // 404 error
+    { 
+        path: '/404',
+        name: "Page404",
+        component: Page404,
+        meta: { transition: "overlay-down-full"}
+    },  
+    { 
+        path: '*', 
+        redirect: '/404'
+    },  
 ]
 
 const router = new VueRouter({
