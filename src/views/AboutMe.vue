@@ -9,48 +9,35 @@
             <div class="img__color"></div>
         </div>
 
-        <div class="about animate__animated animate__jackInTheBox">
+        <div ref="about" class="about animate__animated animate__zoomIn">
             <div class="about__ombre about__ombre1"></div>
             <div class="about__ombre about__ombre2"></div>
             <div class="about__content">
-                <p>
-                    Hello à tous <span class="spacing">! </span>Je suis actuellement <b>alternant développeur web</b> chez <b>Edostar Group</b><span class="spacing">.</span>
-                    De plus, je suis une formation en licence professionnelle option Développement Mobile à l'<b>Université de Cergy</b> sur le site de <b>Gennevilliers</b>.
+                <p class="hello">
+                    Hello, Je suis Joris
                 </p>
 
                 <p>
-                    Je travaille principalement avec <b>Vue</b> en <b>front-end</b> et <b>Node / PHP</b> pour le <b>back-end</b><span class="spacing">.</span> J'essaye de m'orienter le plus possible
-                    en tant que <b>développeur full-stack</b><span class="spacing">.</span> Dans mon poste actuel<span class="spacing">,</span> j'évolue en autodidacte 
-                    ce qui me permet de gérer tous les aspects d'un site web<span class="spacing">.</span>
+                    Développeur front-end et fullstack junior et jeune fasciné par les dinosaures ainsi que les jeux vidéo.
+                    Je travaille principalement avec <b>Vue</b> en <b>front-end</b>.
                 </p>
 
                 <p>
-                    Soucieux de l’adaptabilité et du rendu de mes réalisations<span class="spacing">,</span> je prends toujours en compte le côté <b>responsive</b> via des <b>frameworks CSS</b>
+                    Soucieux de l’adaptabilité et du rendu de mes réalisations, je prends toujours en compte le côté <b>responsive</b> via des <b>frameworks CSS</b>
                     ou par mes propres moyens et communique facilement avec le côté UX/UI pour que l'attente du client soit respectée à 100%.
                 </p>
 
                 <p>
-                    J'aime évoluer dans un endroit calme avec l'espace et les outils nécessaire au bon fonctionnement de mon métier<span class="spacing">,</span> 
-                    j'aime aussi <b>travailler avec des équipes</b> même si <b>évoluer en autonomie</b> ne me dérange pas.
+                    Actuellement basé à Rueil-Malmaison, je peux me déplacer dans les 20 kilomètres qui l'entoure.
                 </p>
-                <p>
-                    <b>Sérieux</b><span class="spacing">,</span> <b>attentif</b> et <b>dynamique</b><span class="spacing">,</span> je m’investis pleinement dans chaque mission confiée<span class="spacing">.</span> 
-                    Je suis apte à accomplir des tâches avec <b>vigueur</b> et <b>enthousiasme</b><span class="spacing">.</span> 
-                    Je suis aussi la <b>veille technologique</b> car je reste un passionné d'informatique.
+
+                <p class="check_out" @click="$router.push({name: 'Realisations'})">
+                    N'hésite pas à regarder mes travaux
                 </p>
             </div>
             
         </div>
-        <div class="interest
-                animate__animated
-                animate__backInUp
-                animate__fast
-            " 
-            v-scrollanimation-mobile
-            @mouseenter="isHover = true"
-            @mouseleave="isHover = false"
-            :class="{isHover: isHover}"
-        >
+        <div class="interest animate__animated animate__fadeInUp" v-scrollanimation-mobile>
             <div class="interest__title">Informations additionnelles</div>
             <div class="interest__item dino">
                 <img class="interest__logo" src="../assets/views/about/interest/dino.svg" alt="dino logo">
@@ -76,12 +63,13 @@
 </template>
 
 <script>
+
 export default {
     data() {
         return {
             isHover: false,
         }
-    }, 
+    },
 }
 </script>
 
@@ -93,6 +81,10 @@ $color: #2D2B36;
 
 .wrapper {
     color: $text;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 .title {
@@ -104,7 +96,9 @@ $color: #2D2B36;
         z-index: 1;
         width: 10%;
         filter: invert(38%) sepia(6%) saturate(1800%) hue-rotate(288deg) brightness(98%) contrast(92%);
+        opacity: 0;
         animation: fadeInLeftForImageTitle 1s forwards;
+        animation-delay: 1s;
     }
 
     &__text {
@@ -117,13 +111,15 @@ $color: #2D2B36;
 .interest {
     display: flex;
     flex-direction: column;
-    font-family: 'Acme';
+    font-family: 'RobotoCondensed Regular';
     border: 3px solid $lien;
     color: $lien;
     background-color: $second_color;
     padding: 20px;
     margin: 20px;
+    opacity: 0;
 
+    animation-delay: 2.5s;
     box-shadow: 20px 20px rgba(128,91,104,.25);
     transition: all 0.4s ease;
 
@@ -158,24 +154,49 @@ $color: #2D2B36;
     }
 }
 
-.isHover {
-    animation: bounce 350ms ease infinite alternate;
-    animation-duration: 350ms !important;
-}
-
 .about {
+    animation-delay: 1s;
+
     &__content {
+        padding-left: 40px;
+        padding-right: 20px;
+
         border: 3px solid $second_color;
         background-color: $lien;
-        padding-left: 20px;
-        padding-right: 20px;
         color: $text;
-        font-family: 'Acme';
-    }
-}
+        font-family: 'RobotoCondensed Regular';
 
-.spacing {
-    letter-spacing: 3px;
+        p.hello {
+            font-family: 'Playfair Display';
+            font-weight: 800;
+            font-size: 48px;
+        }
+
+        p.check_out {
+            width: fit-content;
+            margin-top: 50px;
+            padding-bottom: 10px;
+
+            border-bottom: 3px solid $text;
+
+            @media (hover: hover) {
+                &:hover {
+                    font-style: italic;
+                    color: $second_color;
+                    border-color: $second_color;
+
+                    transform: rotate(0.75deg);
+                    transition: all 500ms ease;
+                }
+
+                &:not(:hover) {
+                    font-style: normal;
+                    transform: rotate(0deg);
+                    transition: all 500ms ease;
+                }
+            }
+        }
+    }
 }
 
 .img {
@@ -184,6 +205,7 @@ $color: #2D2B36;
     display: flex;
     justify-content: center;
     position: relative;
+    animation-delay: 2s;
 
     &__profile, &__color {
         height: 400px;
@@ -273,7 +295,7 @@ $color: #2D2B36;
     }
 
     .interest {
-        font-size: 32px;
+        font-size: 24px;
     }
 }
 

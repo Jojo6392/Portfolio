@@ -1,7 +1,7 @@
 <template>
     <div class="test">
         <div class="fullScreen">
-            
+
         </div>
     </div>
 </template>

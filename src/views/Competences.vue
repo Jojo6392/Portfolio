@@ -325,18 +325,21 @@ export default {
 
     mounted () {
         document.addEventListener('mousewheel', (event) => {
-            // down mousewheel
+
             let index = null
+            // unset l'ancien active skill
             const previousIndex = this.skills.map(e => e.isActive).indexOf(true)
             this.skills[previousIndex].isActive = false
 
+            // Condition pour savoir si c'est un scroll vers le haut ou vers le bas
             if(event.wheelDelta < 0) index = previousIndex + 1
             else index = previousIndex - 1
+
+            // Conditions pour savoir si on dépasse les limites du tableau
             if(index === -1) index = this.skills.length - 1
             else if(index === this.skills.length) index = 0
 
-            console.log(index);
-
+            // set le nouveau active skill
             this.skills[index].isActive = true
         });
     },
