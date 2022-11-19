@@ -7,7 +7,7 @@
         />
         <div class="text">
             Je crois que vous vous êtes perdu ! Vous pouvez naviguer sur le site avec le menu situé en haut de votre écran ou 
-            <span class="redirect" @click="goHome()">cliquez ici</span> pour retourner à la page d'accueil
+            <span class="redirect" @click="goHome()">cliquez ici</span> pour retourner à la page d'accueil.
         </div>
     </div>
 </template>
@@ -21,7 +21,6 @@ export default {
     },
     methods: {
         goHome() {
-            console.log("je clique");
             this.$router.push({name: "Home"})
         }
     },

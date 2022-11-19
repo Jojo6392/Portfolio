@@ -4,18 +4,18 @@
         <div id="home">
             <div class="home__header">
                 <div class="text">
-                    <div class="text__hello">
+                    <div class="text__hello opacity0 animate__animated animate__fadeInLeft">
                         Hi, I am
                     </div>
-                    <div class="text__name">
+                    <div class="text__name opacity0 animate__animated animate__fadeInLeft">
                         Joris Margotteau
                     </div>
-                    <div class="text__metier">
+                    <div class="text__metier opacity0 animate__animated animate__fadeInLeft">
                         Web Developer
                         <img class="text__metier__img" src="../assets/header/dinosaur-skull.png" alt="">
                     </div>
                 </div>
-                <div class="social-links">
+                <div class="social-links animate__animated animate__zoomInRight animate__slow">
                     <a :href="pdfLink" download="CV_MARGOTTEAU_Joris_2021">
                         <div class="social-btn social-btn__cv flex-center" id="cv">
                             <img src="../assets/header/CV.svg" alt="cv logo" class="social-btn__cv__img">
@@ -39,8 +39,12 @@
                 </div>
             </div>
             <div class="menu">
-                <div class="menu__item">
-                    <div class="menu__item__content" @mouseenter="onHover($event)" @mouseleave="onHover($event)" @click="redirectToPage(0)">
+                <div class="menu__item animate__animated animate__zoomIn">
+                    <div class="menu__item__content" 
+                        @mouseenter="onHover($event)" 
+                        @mouseleave="onHover($event)" 
+                        @click="$router.push({name: 'AboutMe'})"
+                    >
                         <img class="menu__item__img" src="../assets/global/a_propos_de_moi.png" alt="About me">
                         <div class="menu__item__content__text" style="background-color: rgba(128, 91, 104, 0.5); backdrop-filter: blur(2px);">
                             <!-- Here, you will be able to see more details about me -->
@@ -49,16 +53,24 @@
                     </div>
                     
                 </div>
-                <div class="menu__item">
-                    <div class="menu__item__content" @mouseenter="onHover($event)" @mouseleave="onHover($event)" @click="redirectToPage(1)">
+                <div class="menu__item animate__animated animate__zoomIn">
+                    <div class="menu__item__content"
+                        @mouseenter="onHover($event)"
+                        @mouseleave="onHover($event)"
+                        @click="$router.push({name: 'Competences'})"
+                    >
                         <img class="menu__item__img" src="../assets/global/competences.png" alt="Competences">
                         <div class="menu__item__content__text" style="background-color: rgba(4, 141, 116, 0.5); backdrop-filter: blur(2px);">
                             Voir les competences acquises
                         </div>
                     </div>
                 </div>
-                <div class="menu__item">
-                    <div class="menu__item__content" @mouseenter="onHover($event)" @mouseleave="onHover($event)" @click="redirectToPage(2)">
+                <div class="menu__item animate__animated animate__zoomIn">
+                    <div class="menu__item__content"
+                        @mouseenter="onHover($event)"
+                        @mouseleave="onHover($event)"
+                        @click="$router.push({name: 'Realisations'})"
+                    >
                         <img class="menu__item__img" src="../assets/global/realisations.png" alt="Realisations">
                         <div class="menu__item__content__text" style="background-color: rgba(109, 133, 54, 0.5); backdrop-filter: blur(2px);">
                             <!-- List of projects that I have currently completed  -->
@@ -66,8 +78,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="menu__item">
-                    <div class="menu__item__content" @mouseenter="onHover($event)" @mouseleave="onHover($event)" @click="redirectToPage(3)">
+                <div class="menu__item animate__animated animate__zoomIn">
+                    <div class="menu__item__content"
+                        @mouseenter="onHover($event)"
+                        @mouseleave="onHover($event)"
+                        @click="$router.push({name: 'Parcours'})"
+                    >
                         <img class="menu__item__img" src="../assets/global/parcours.png" alt="Parcours">
                         <div class="menu__item__content__text" style="background-color: rgba(0, 112, 143, 0.5); backdrop-filter: blur(2px);">
                             <!-- Look at all my degrees and experiences  -->
@@ -76,7 +92,7 @@
                     </div>
                 </div>
             </div>
-            <div class="contact">
+            <div class="contact opacity0 animate__animated animate__fadeInUp" @click="$router.push({name: 'Contact'})">
                 Contactez-moi
             </div>
         </div>
@@ -100,29 +116,6 @@ export default {
         onHover: function(e) {
             const contentToDisplay = e.target.children[1]
             contentToDisplay.classList.toggle("onHover")
-            
-        },
-
-        redirectToPage: function(i) {
-            switch(i) {
-                case 0:
-                    this.$router.push({name: "AboutMe"})
-                    break;
-
-                case 1:
-                    this.$router.push({name: "Competences"})
-                    break;
-
-                case 2:
-                    this.$router.push({name: "Realisations"})
-                    break;
-
-                case 3:
-                    this.$router.push({name: "Parcours"})
-                    break;
-
-                default: break;
-            }
         },
     },
 }
@@ -139,6 +132,10 @@ $white: rgb(229, 229, 229);
 
 a {
     text-decoration: inherit;
+}
+
+.opacity0 {
+    opacity: 0;
 }
 
 .dino_walk {
@@ -194,12 +191,14 @@ a {
     &__name {
         font-size: 120px;
         color: $white;
+        animation-delay: 500ms;
     }
 
     &__metier {
         display: flex;
         align-items: center;
         color: $red;
+        animation-delay: 1s;
 
         &__img {
             width: 42px;
@@ -228,6 +227,12 @@ a {
         align-items: center;
         font-size: 64px;
         font-family: 'Jurassic Park';
+
+        @for $i from 1 through 4 {
+            &:nth-child(#{$i}) {
+                animation-delay: calc(1.5s + $i * 500ms);
+            }
+        }
 
         &__content {
             margin: 0 20px 10px 20px;
@@ -272,6 +277,7 @@ a {
 
     border-bottom: $border_height solid rgba($color: $red, $alpha: .9);
     position: relative;
+    animation-delay: 4s;
     
     &::before {
         content: '';
@@ -332,6 +338,7 @@ span.menu__title {
 .social-links {
 	display: flex;
     margin-right: 10%;
+    animation-delay: 1.5s;
 }
 
 .social-btn {
