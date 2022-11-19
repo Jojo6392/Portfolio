@@ -323,6 +323,24 @@ export default {
         }
     },
 
+    mounted () {
+        document.addEventListener('mousewheel', (event) => {
+            // down mousewheel
+            let index = null
+            const previousIndex = this.skills.map(e => e.isActive).indexOf(true)
+            this.skills[previousIndex].isActive = false
+
+            if(event.wheelDelta < 0) index = previousIndex + 1
+            else index = previousIndex - 1
+            if(index === -1) index = this.skills.length - 1
+            else if(index === this.skills.length) index = 0
+
+            console.log(index);
+
+            this.skills[index].isActive = true
+        });
+    },
+
     methods: {
         /**
          * @param {Number} index
