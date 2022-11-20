@@ -400,7 +400,6 @@ $third_color: #C9CAD9;
 
 .projects {
     font-size: 32px;
-    padding-top: 100px;
 
     &__desc {
         position: relative;
@@ -413,6 +412,7 @@ $third_color: #C9CAD9;
         padding: 20px;
         padding-left: 50px;
         margin: 0 auto;
+        margin-top: 120px;
 
         background-color: $second_color;
         border-radius: 20px;
@@ -685,7 +685,6 @@ $third_color: #C9CAD9;
 // ENTRE PETITE ET MOYENNE RESOLUTION
 @media (max-width: 1200px) {
     .projects {
-        padding-top: 100px;
 
         &__desc {
             & .title {
@@ -719,7 +718,6 @@ $third_color: #C9CAD9;
 @media (max-width: 900px) {
 
     .projects {
-        padding-top: 100px;
 
         &__desc {
             & .title {
@@ -759,16 +757,16 @@ $third_color: #C9CAD9;
 @media (max-width: 500px) {
     .page{
         height: 33vh;
-        padding: 20px 0 10px 0
+        padding: 20px 0 10px 0;
     }
 
     .projects {
         height: fit-content;
-        padding-top: 100px;
         padding-bottom: 50px;
 
         &__desc {
             font-size: 16px;
+            margin-top: 75px;
 
             & .arceaux {
                 left: -10px;
