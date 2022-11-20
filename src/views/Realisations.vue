@@ -1,10 +1,6 @@
 <template>
     <div class="container">
         <div id="page" class="projects page">
-            <div class="projects__title">
-                <div class="projects__title__text">Realisations</div>
-                <img class="projects__title__img" src="../assets/global/cursor.svg" alt="">
-            </div>
             <div class="projects__desc">
                 <div class="arceaux">
                     <div 
@@ -404,30 +400,7 @@ $third_color: #C9CAD9;
 
 .projects {
     font-size: 32px;
-
-    &__title {
-        display: flex;
-        color: $second_color;
-        font-family: 'Jurassic Park';
-        height: 100px;
-        font-size: 144px;
-
-        padding-top: 75px;
-        padding-left: 1em;
-        padding-bottom: 50px;
-
-        &__img {
-            transform: translate(-30px, 30px) rotate(60deg);
-            z-index: 1;
-            width: 10%;
-            filter: invert(47%) sepia(26%) saturate(876%) hue-rotate(37deg) brightness(95%) contrast(87%);
-        }
-
-        &__text {
-            z-index: 2;
-            width: fit-content;
-        }
-    }
+    padding-top: 100px;
 
     &__desc {
         position: relative;
@@ -517,7 +490,8 @@ $third_color: #C9CAD9;
         left: 0;
         transform: translateY(85%);
 
-        background: rgb(175, 175, 175);
+        background: transparent;
+        backdrop-filter: blur(50px);
         height: 100%;
         width: 100%;
 
@@ -711,15 +685,7 @@ $third_color: #C9CAD9;
 // ENTRE PETITE ET MOYENNE RESOLUTION
 @media (max-width: 1200px) {
     .projects {
-
-        &__title {
-            font-size: 100px;
-            padding-bottom: 0.25em;
-
-            &__img {
-                width: 7.5%;
-            }
-        }
+        padding-top: 100px;
 
         &__desc {
             & .title {
@@ -753,17 +719,7 @@ $third_color: #C9CAD9;
 @media (max-width: 900px) {
 
     .projects {
-
-        &__title {
-            margin-left: 0;
-            justify-content: center;
-            font-size: 96px;
-            margin-bottom: 0.25em;
-
-            &__img {
-                transform: translateX(10px) rotate(60deg);
-            }
-        }
+        padding-top: 100px;
 
         &__desc {
             & .title {
@@ -807,15 +763,9 @@ $third_color: #C9CAD9;
     }
 
     .projects {
-        height: 100vh;
-
-        &__title {
-            align-items: center;
-
-            margin: 0;
-            margin-top: 10vh;
-            padding: 0;
-        }
+        height: fit-content;
+        padding-top: 100px;
+        padding-bottom: 50px;
 
         &__desc {
             font-size: 16px;
@@ -827,6 +777,10 @@ $third_color: #C9CAD9;
             & .arceau {
                 width: 30px;
                 height: 15px;
+            }
+
+            & img {
+                height: 100px !important;
             }
         }
     }
