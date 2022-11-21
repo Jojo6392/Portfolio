@@ -1,26 +1,37 @@
 <template>
     <div class="navbar">
         <div id="menu">
-            <img class="navbar__logo" src="../assets/global/logo.png" alt="logo" @click="navigate(0)">
+            <img class="navbar__logo" src="../assets/global/logo.png" alt="logo" 
+                @click="navigate($router.push({name: 'Home'}))">
             <div class="hyperliens">
                 <div class="hyperlien">
-                    <div id="lien" class="hidden" @click="navigate(1)">A propos de moi</div>
+                    <div id="lien" class="hidden" @click="navigate($router.push({name: 'AboutMe'}))">
+                        A propos de moi
+                    </div>
                     <img class="img__lien" src="../assets/global/cursor.svg" alt="1">
                 </div>
                 <div class="hyperlien">
-                    <div id="lien" class="hidden" @click="navigate(2)">Competences</div>
+                    <div id="lien" class="hidden" @click="navigate($router.push({name: 'Competences'}))">
+                        Competences
+                    </div>
                     <img class="img__lien" src="../assets/global/cursor.svg" alt="2">
                 </div>
                 <div class="hyperlien">
-                    <div id="lien" class="hidden" @click="navigate(3)">Realisations</div>
+                    <div id="lien" class="hidden" @click="navigate($router.push({name: 'Realisations'}))">
+                        Realisations
+                    </div>
                     <img class="img__lien" src="../assets/global/cursor.svg" alt="3">
                 </div>
                 <div class="hyperlien">
-                    <div id="lien" class="hidden" @click="navigate(4)">Parcours</div>
+                    <div id="lien" class="hidden" @click="navigate($router.push({name: 'Parcours'}))">
+                        Parcours
+                    </div>
                     <img class="img__lien" src="../assets/global/cursor.svg" alt="4">
                 </div>
                 <div class="hyperlien">
-                    <div id="lien" class="hidden" @click="navigate(5)">Contact</div>
+                    <div id="lien" class="hidden" @click="navigate($router.push({name: 'Contact'}))">
+                        Contact
+                    </div>
                     <img class="img__lien" src="../assets/global/cursor.svg" alt="4">
                 </div>
             </div>
@@ -110,7 +121,7 @@ export default {
             this.$router.push({name: "Contact"})
         },
 
-        navigate: function(page) {
+        navigate: function(routeToGo) {
 
             // to close and reset the menu
             const hamburgerMenu = document.querySelector(".toggle-menu");
@@ -124,35 +135,7 @@ export default {
                 lien.classList.toggle("hidden")
                 lien.classList.toggle("animate_lien")
             })
-
-            switch(page) {
-                case 0:
-                    this.$router.push({name: 'Home'})
-                    break;
-
-                case 1:
-                    this.$router.push({name: 'AboutMe'})
-                    break;
-
-                case 2:
-                    this.$router.push({name: 'Competences'})
-                    break;
-
-                case 3:
-                    this.$router.push({name: 'Realisations'})
-                    break;
-
-                case 4:
-                    this.$router.push({name: 'Parcours'})
-                    break;
-
-                case 5:
-                    this.$router.push({name: 'Contact'})
-                    break;
-
-                default: break;
-            }
-            
+            routeToGo
         }
     },
 }
@@ -334,10 +317,11 @@ $hamburger-zindex: 10;
 }
 
 #lien {
-    font-family: 'Jurassic Park';
     font-size: 64px;
-    color: white;
+    color: rgba($color: #fff, $alpha: .8);
     text-decoration: none;
+    letter-spacing: 2px;
+
     z-index: 100;
     text-align: center;
 

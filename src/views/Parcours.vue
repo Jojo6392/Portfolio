@@ -461,6 +461,18 @@ $background: rgb(27, 26, 35);
     }
 }
 
+@media (max-width: 1540px) and (min-width: 1200px) and (max-height: 900px) {
+    .cards {
+        .card {
+            .content {
+                .description {
+                    font-size: 10px;
+                }
+            }
+        }
+    }
+}
+
 // MOYENNE RESOLUTION
 @media (max-width: 1200px) {
     .container {

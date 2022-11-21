@@ -256,7 +256,7 @@ a {
                 height: 94%;
                 border-radius: 20px;
                 font-size: 32px;
-                font-family: 'ExplosionBook';
+                font-family: 'SlasherFilm';
                 color: $white;
             }
         }

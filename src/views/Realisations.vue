@@ -9,7 +9,7 @@
                         class="arceau"
                     ></div>
                 </div>
-                <div class="title">Sur cette page vous trouverez les differentes realisations que j'ai pu realise</div>
+                <div class="title">Sur cette page vous trouverez les différentes réalisations que j'ai pu réalisé</div>
                 <ul>
                     <li>Faites défiler pour afficher chaque réalisation une par une.</li>
                     <li>Cliquez sur une réalisation pour afficher ses détails.</li>
@@ -440,16 +440,18 @@ $third_color: #C9CAD9;
         }
 
         & .title {
-            text-align: center;
-            font-style: italic;
-            font-size: 48px;
             width: 90%;
-            font-family: 'ExplosionBook';
+            padding-top: 10px;
+
+            text-align: center;
+            font-size: 72px;
+            font-family: 'SlasherFilm';
         }
 
         & li {
             list-style-type: circle;
             font-family: 'RobotoCondensed Light';
+            font-size: 36px;
         }
 
         & .gif {
@@ -662,7 +664,7 @@ $third_color: #C9CAD9;
 @media (max-width: 1540px) {
     .projects__desc {
         & .title {
-            font-size: 32px;
+            font-size: 48px;
             width: 80%;
         }
 
@@ -688,7 +690,7 @@ $third_color: #C9CAD9;
 
         &__desc {
             & .title {
-                font-size: 32px;
+                font-size: 40px;
                 width: 80%;
             }
 
@@ -721,7 +723,7 @@ $third_color: #C9CAD9;
 
         &__desc {
             & .title {
-                font-size: 20px;
+                font-size: 36px;
                 width: 100%;
             }
 
@@ -767,6 +769,10 @@ $third_color: #C9CAD9;
         &__desc {
             font-size: 16px;
             margin-top: 75px;
+
+            .title {
+                font-size: 30px;
+            }
 
             & .arceaux {
                 left: -10px;

@@ -383,7 +383,7 @@ $white: rgb(229, 229, 229);
     flex-direction: column;
 
     & .title {
-        font-family: 'ExplosionBook';
+        font-family: 'SlasherFilm';
         font-size: 48px;
         color: $main_color;
         padding-bottom: 2vh;
@@ -442,7 +442,7 @@ $white: rgb(229, 229, 229);
                     width: fit-content;
                     height: fit-content;
 
-                    font-family: 'ExplosionBook';
+                    font-family: 'SlasherFilm';
                     color: $white;
                     font-size: 42px;
                     border-left: 5px solid $light_color;
