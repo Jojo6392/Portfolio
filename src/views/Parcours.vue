@@ -325,7 +325,19 @@ $background: rgb(27, 26, 35);
             background-position: center;
             background-size: contain;
             background-repeat: no-repeat;
-            box-shadow: 0px 0px 35px 10px rgba(0,0,0,0.6);
+            box-shadow: 0px 0px 25px 10px rgba(0,0,0,0.6);
+
+            @media (hover: hover) {
+                &:hover {
+                    transform: translate(-50%, -50%) scale(1.15);
+                    transition: transform 500ms ease;
+                }
+
+                &:not(:hover) {
+                    transform: translate(-50%, -50%) scale(1);
+                    transition: transform 500ms ease;
+                }
+            }
         }
     }
 
