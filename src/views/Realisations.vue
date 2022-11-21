@@ -86,13 +86,13 @@
 
                     <!-- Liens de la réalisation -->
                     <div class="links">
-                        <a :href="item.links[0]" target="_blank">
+                        <a :href="item.links[0]" target="_blank" v-show="item.links[0] !== ''">
                             <img
                                 class="link"
                                 src="../assets/views/projects/redirection.svg" 
                                 alt="external link">
                         </a>
-                        <a :href="item.links[1]" target="_blank">
+                        <a :href="item.links[1]" target="_blank"  v-show="item.links[1] !== ''">
                             <img
                                 class="link"
                                 src="../assets/header/github.svg" 
@@ -127,21 +127,24 @@ export default {
         return {
             realisations: [
                 {
-                    name: "Portfolio",
-                    date: "Avril - Juin 2022",
-                    desc: "Site sur lequel vous êtes actuellement ! Créer pendant mon temps libre sous le framework Vue 2.",
-                    tags: ["VueJS", "SCSS", "JS", "HTML"],
-                    links: ["#", "https://github.com/Jojo6392/Portfolio"],
+                    name: "Integrations",
+                    date: "2022 - Aujourd'hui",
+                    desc: "Travaux basés sur plusieurs maquettes. Cela m'a servi à m'entraîner en front et j'aime faire de l'intégration de temps en temps.",
+                    tags: ["VueJS", "SCSS", "JS", "HTML", "Figma"],
+                    links: ["https://jojo6392.github.io/AirPodsMax-Integration/", "https://github.com/Jojo6392/AirPodsMax-Integration/"],
                     images: [
                         {
-                            lien: require('../assets/views/projects/portfolio/image1.png'),
+                            lien: require('../assets/views/projects/integrations/image1.png'),
                             isActive: true,
                         },
                         {
-                            lien: require('../assets/views/projects/portfolio/image2.png'),
+                            lien: require('../assets/views/projects/integrations/image2.png'),
                             isActive: false,
                         },
-                        
+                        {
+                            lien: require('../assets/views/projects/integrations/image3.png'),
+                            isActive: false,
+                        },
                     ],
                     interval: null,
                 },
@@ -262,6 +265,50 @@ export default {
                         },
                         {
                             lien: require('../assets/views/projects/aeroports/image5.png'),
+                            isActive: false,
+                        },
+                    ],
+                    interval: null,
+                },
+                {
+                    name: "Systeme de Fidelite",
+                    date: "Octobre 2021 - Avril 2022",
+                    desc: "Application Web, Système de fidélité d'une boîte de restauration créée sous VueJS avec NodeJS pour le back et Firebase pour la base de données. Développer pendant mon alternance chez Edostar.",
+                    tags: ["VueJS", "JS", "HTML", "SCSS", "API", "Node.js", "Express", "Firebase"],
+                    links: ["", ""],
+                    images: [
+                        {
+                            lien: require('../assets/views/projects/fidelite/image1.png'),
+                            isActive: true,
+                        },
+                        {
+                            lien: require('../assets/views/projects/fidelite/image2.png'),
+                            isActive: false,
+                        },
+                        {
+                            lien: require('../assets/views/projects/fidelite/image3.png'),
+                            isActive: false,
+                        },
+                        {
+                            lien: require('../assets/views/projects/fidelite/image4.png'),
+                            isActive: false,
+                        },
+                    ],
+                    interval: null,
+                },
+                {
+                    name: "Prise de commande",
+                    date: "Septembre 2022",
+                    desc: "Application web de prise de commande créée sous VueJS avec Firebase pour la base de données. Développer pendant mon alternance chez Edostar.",
+                    tags: ["VueJS", "JS", "HTML", "SCSS", "Firebase"],
+                    links: ["", ""],
+                    images: [
+                        {
+                            lien: require('../assets/views/projects/order_taking/image1.png'),
+                            isActive: true,
+                        },
+                        {
+                            lien: require('../assets/views/projects/order_taking/image2.png'),
                             isActive: false,
                         },
                     ],
@@ -620,6 +667,7 @@ $third_color: #C9CAD9;
 //CAROUSSEL DES IMAGES
 .carrousel {
     height: 100%;
+    width: 100%;
     position: absolute;
     left: 0;
     bottom: 0;
@@ -627,6 +675,7 @@ $third_color: #C9CAD9;
     &__item {
         display: flex;
         height: 100%;
+        width: 100%;
 
         &__active {
             animation: fadeInDown 750ms forwards;
@@ -634,6 +683,7 @@ $third_color: #C9CAD9;
 
         & img {
             object-fit: cover;
+            width: 100%;
         }
     }
 }
