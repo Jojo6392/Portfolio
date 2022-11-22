@@ -4,9 +4,7 @@ import VueRouter from 'vue-router'
 import Home from "../views/Home.vue"
 import AboutMe from "../views/AboutMe.vue"
 import Competences from "../views/Competences.vue"
-import Projects from "../views/Projects.vue"
 import Realisations from "../views/Realisations.vue"
-import Projets from "../views/Projects.vue"
 import Parcours from "../views/Parcours.vue"
 import Contact from "../views/Contact.vue"
 import Test from "../components/Test.vue"
@@ -31,19 +29,9 @@ const routes = [
         component: Competences,
     },
     {
-        path: "/projects",
-        name: "Projects",
-        component: Projects,
-    },
-    {
         path: "/realisations",
         name: "Realisations",
         component: Realisations,
-    },
-    {
-        path: "/projets",
-        name: "Projets",
-        component: Projets,
     },
     {
         path: "/parcours",
