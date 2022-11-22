@@ -27,15 +27,14 @@
     </url>
 
     <url>
-        <loc>http://www.jorismargotteau.fr/about_me</loc>
-        <lastmod>2022-11-07</lastmod>
-        <priority>0.9</priority>
-    </url>
-
-    <url>
         <loc>http://www.jorismargotteau.fr/parcours</loc>
         <lastmod>2022-11-07</lastmod>
         <priority>0.6</priority>
     </url>
 
+    <url>
+        <loc>http://www.jorismargotteau.fr/contact</loc>
+        <lastmod>2022-11-07</lastmod>
+        <priority>0.6</priority>
+    </url>
 </urlset>
