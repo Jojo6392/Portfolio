@@ -16,10 +16,10 @@
                     </div>
                 </div>
                 <div class="social-links animate__animated animate__zoomInRight animate__slow">
-                    <a :href="pdfLink" download="CV_MARGOTTEAU_Joris_2021">
+                    <a :href="pdfLink" download="CV_MARGOTTEAU_Joris_2022">
                         <div class="social-btn social-btn__cv flex-center" id="cv">
                             <img src="../assets/header/CV.svg" alt="cv logo" class="social-btn__cv__img">
-                            <span>Télécharger <br> <i>last update : 2021</i> </span>
+                            <span>Télécharger <br> <i>last update : 2022</i> </span>
                         </div>
                     </a>
 
@@ -48,7 +48,7 @@
                         <img class="menu__item__img" src="../assets/global/a_propos_de_moi.png" alt="About me">
                         <div class="menu__item__content__text" style="background-color: rgba(128, 91, 104, 0.5); backdrop-filter: blur(2px);">
                             <!-- Here, you will be able to see more details about me -->
-                            Ici, vous pourrez voir plus de details sur moi
+                            Ici, vous pourrez voir plus de détails sur moi
                         </div>
                     </div>
                     
@@ -61,7 +61,7 @@
                     >
                         <img class="menu__item__img" src="../assets/global/competences.png" alt="Competences">
                         <div class="menu__item__content__text" style="background-color: rgba(4, 141, 116, 0.5); backdrop-filter: blur(2px);">
-                            Voir les competences acquises
+                            Voir les compétences acquises
                         </div>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
                         <img class="menu__item__img" src="../assets/global/realisations.png" alt="Realisations">
                         <div class="menu__item__content__text" style="background-color: rgba(109, 133, 54, 0.5); backdrop-filter: blur(2px);">
                             <!-- List of projects that I have currently completed  -->
-                            Liste de projets realises
+                            Liste de projets réalisés
                         </div>
                     </div>
                 </div>
@@ -198,7 +198,7 @@ a {
         display: flex;
         align-items: center;
         color: $red;
-        animation-delay: 1s;
+        animation-delay: 750ms;
 
         &__img {
             width: 42px;
@@ -230,7 +230,7 @@ a {
 
         @for $i from 1 through 4 {
             &:nth-child(#{$i}) {
-                animation-delay: calc(1.5s + $i * 500ms);
+                animation-delay: calc(1s + $i * 350ms);
             }
         }
 
@@ -277,7 +277,7 @@ a {
 
     border-bottom: $border_height solid rgba($color: $red, $alpha: .9);
     position: relative;
-    animation-delay: 4s;
+    animation-delay: 2.65s;
     
     &::before {
         content: '';
@@ -338,7 +338,7 @@ span.menu__title {
 .social-links {
 	display: flex;
     margin-right: 10%;
-    animation-delay: 1.5s;
+    animation-delay: 1s;
 }
 
 .social-btn {
