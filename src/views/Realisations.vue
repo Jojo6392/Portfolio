@@ -340,7 +340,6 @@ export default {
     },
 
     mounted() {
-        document.title="Joris Margotteau - Réalisations";
 
         // Ne pas appliquer l'effet "fullPage" aux écrans de téléphone portable
         const clientWidth  = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;

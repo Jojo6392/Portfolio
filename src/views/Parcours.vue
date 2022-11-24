@@ -172,10 +172,6 @@ export default {
         }
     },
 
-    mounted () {
-        document.title="Joris Margotteau - Parcours";
-    },
-
     components: {
         SwitchParcours,
     },

@@ -324,7 +324,6 @@ export default {
     },
 
     mounted () {
-        document.title = "Joris Margotteau - Compétences"
         document.addEventListener('mousewheel', (event) => {
 
             let index = null

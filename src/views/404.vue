@@ -19,9 +19,7 @@ export default {
     components: {
         LottieAnimation,
     },
-    mounted () {
-        document.title = "Joris Margotteau - Page Introuvable";
-    },
+
     methods: {
         goHome() {
             this.$router.push({name: "Home"})

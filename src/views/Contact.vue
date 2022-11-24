@@ -116,10 +116,6 @@ export default {
         }
     },
 
-    mounted () {
-        document.title = "Joris Margotteau - Contact";
-    },
-
     watch: {
         "form.user"() {
             this.checkForm()

@@ -70,10 +70,6 @@ export default {
             isHover: false,
         }
     },
-    
-    mounted () {
-        document.title = "Joris Margotteau - À propos de moi";
-    },
 }
 </script>
 
