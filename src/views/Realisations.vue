@@ -145,6 +145,10 @@ export default {
                             lien: require('../assets/views/projects/integrations/image3.png'),
                             isActive: false,
                         },
+                        {
+                            lien: require('../assets/views/projects/integrations/image4.png'),
+                            isActive: false,
+                        },
                     ],
                     interval: null,
                 },
