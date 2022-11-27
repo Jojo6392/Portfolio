@@ -23,12 +23,12 @@ export default {
 
     data() {
         return {
-            xChild: 0,
-            yChild: 0,
-            xParent: 0,
-            yParent: 0,
+            xChild: -100,
+            yChild: -100,
+            xParent: -100,
+            yParent: -100,
             hover: false,
-            hideCursor: true,
+            hideCursor: false,
         }
     },
 
@@ -54,11 +54,6 @@ export default {
             if(to.name === 'Contact') containerElement.classList.add("background_contact")
             else if (from.name === 'Contact') containerElement.classList.remove("background_contact")
         }
-    },
-    created () {
-        window.addEventListener('beforeunload', () => {
-            document.documentElement.scrollTop = document.body.scrollTop = 0;
-        });
     },
 
     mounted() {
